@@ -178,6 +178,16 @@ $("ovtoggle").addEventListener("click",function(){
   this.textContent="表示: "+(inside?"枠外":"枠内");
   try{localStorage.setItem("ukka-overlay-position",inside?"outside":"inside")}catch(e){}
 });
+$("fsbtn").addEventListener("click",function(){
+  var w=$("mvwrap");
+  if(document.fullscreenElement){document.exitFullscreen()}
+  else if(w.requestFullscreen){w.requestFullscreen()}
+  else if(w.webkitRequestFullscreen){w.webkitRequestFullscreen()}
+});
+$("fsexit").addEventListener("click",function(){if(document.fullscreenElement)document.exitFullscreen()});
+document.addEventListener("fullscreenchange",function(){
+  $("fsexit").style.display=document.fullscreenElement?"block":"none";
+});
 $("addbtn").addEventListener("click",async function(){
   var name=$("nick").value.trim(),text=$("ctext").value.trim();
   if(!name){alert("ニックネームを入れてください");return}
