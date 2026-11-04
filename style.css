@@ -1,0 +1,99 @@
+:root{
+  --pink:#f78fb3; --pink-d:#e75480; --ink:#4a3540; --sub:#8a6d7b;
+  --bg:#fff7fa; --card:#ffffff; --line:#f3d7e2; --accent:#ffb7cd;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN",sans-serif;
+  background:var(--bg); color:var(--ink); line-height:1.7;
+  -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:760px;margin:0 auto;padding:16px 14px 40px}
+.making{font-size:12px;color:var(--sub);text-align:center;margin:2px 0 6px}
+h1{font-family:"Zen Maru Gothic","M PLUS Rounded 1c",sans-serif;font-size:30px;text-align:center;margin:4px 0 6px;color:var(--pink-d)}
+.intro{text-align:center;color:var(--sub);font-size:14px;margin:0 0 16px}
+h2{font-family:"Zen Maru Gothic","M PLUS Rounded 1c",sans-serif;font-size:22px;color:var(--pink-d);border-bottom:3px dotted var(--accent);padding-bottom:6px;margin:30px 0 12px}
+h3{font-family:"Zen Maru Gothic","M PLUS Rounded 1c",sans-serif;font-size:17px;margin:16px 0 6px}
+select,input[type=text],textarea{
+  font-family:inherit;font-size:15px;color:var(--ink);
+  border:2px solid var(--line);border-radius:12px;padding:9px 12px;background:#fff;width:100%;
+}
+button{
+  font-family:inherit;font-size:15px;border:2px solid var(--line);background:#fff;color:var(--ink);
+  border-radius:999px;padding:8px 16px;cursor:pointer;
+}
+button:hover{border-color:var(--accent)}
+button.primary{background:var(--pink);border-color:var(--pink);color:#fff;font-weight:700}
+button.primary:hover{background:var(--pink-d)}
+.vidsel{margin-bottom:10px}
+.mvwrap{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:16px;overflow:visible}
+.mvwrap .frame{position:absolute;inset:0;border-radius:16px;overflow:hidden}
+.mvwrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+#ovl{position:absolute;left:0;right:0;display:flex;gap:6px;pointer-events:none;padding:6px;z-index:5}
+#ovl.inside{top:0}
+#ovl.outside{top:-64px}
+.ovcard{flex:1 1 0;min-width:0;background:rgba(255,255,255,.78);border:1.5px solid var(--accent);border-radius:10px;padding:4px 8px;font-size:12px;line-height:1.45;overflow:hidden}
+.ovcard .t{color:var(--pink-d);font-weight:700;margin-right:6px}
+.ovcard .n{font-weight:700;margin-right:6px}
+.controls{display:flex;gap:6px;align-items:center;margin-top:12px;flex-wrap:wrap}
+.controls .play{flex:1;background:var(--pink);border-color:var(--pink);color:#fff;font-weight:700;min-height:48px;font-size:16px}
+.controls .skb{min-width:64px;min-height:48px}
+.seekrow{display:flex;align-items:center;gap:10px;margin-top:10px}
+.seekrow input[type=range]{flex:1;accent-color:var(--pink-d);height:28px}
+.time{font-size:13px;color:var(--sub);white-space:nowrap}
+.toggle{font-size:13px;padding:5px 12px}
+#cards{margin-top:12px;display:flex;flex-direction:column;gap:8px;min-height:0}
+.card{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:10px 14px;box-shadow:0 2px 8px rgba(231,84,128,.07)}
+.card .t{color:var(--pink-d);font-weight:700;margin-right:8px}
+.card .n{font-weight:700;margin-right:8px}
+.card p{margin:4px 0 0}
+.form{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:14px;margin-top:14px}
+.form .row{margin-bottom:10px}
+.form label{font-size:13px;color:var(--sub);display:block;margin-bottom:4px}
+.list{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.item{background:#fff;border:2px solid var(--line);border-radius:12px;padding:8px 12px;text-align:left;width:100%;font-size:14px}
+.item .t{color:var(--pink-d);font-weight:700;margin-right:8px}
+.item .n{font-weight:700;margin-right:8px}
+.empty{color:var(--sub);font-size:14px;text-align:center;padding:8px}
+.member{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:16px;margin-top:14px}
+.member .mname{font-family:"Zen Maru Gothic","M PLUS Rounded 1c",sans-serif;font-size:21px;margin:0}
+.member .yomi{color:var(--sub);font-size:13px;margin:2px 0 8px}
+.member .lead{margin:6px 0 10px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.tag{background:#ffeef4;border:1.5px solid var(--accent);border-radius:999px;padding:2px 10px;font-size:12.5px}
+table.prof{width:100%;border-collapse:collapse;font-size:14px}
+table.prof th{text-align:left;color:var(--pink-d);white-space:nowrap;padding:6px 8px 6px 0;vertical-align:top;font-weight:700}
+table.prof td{padding:6px 0;border-bottom:1px dashed var(--line)}
+table.prof .note{color:var(--sub);font-size:13px}
+.actgrid{display:flex;flex-direction:column;gap:8px}
+.act{border:2px solid var(--line);border-radius:12px;padding:10px 14px;background:#fff}
+.act .lab{font-size:11.5px;color:var(--pink-d);font-weight:700;letter-spacing:.06em}
+.act h4{margin:2px 0 4px;font-size:15.5px}
+.act p{margin:0;font-size:14px}
+.charm{margin:0;padding-left:20px}
+.charm li{margin-bottom:8px}
+.charm b{color:var(--pink-d)}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{border-left:3px solid var(--accent);padding:2px 0 10px 12px;position:relative}
+.tl .dt{font-size:12.5px;color:var(--pink-d);font-weight:700}
+.tl .tt{font-weight:700}
+.tl p{margin:2px 0 0;font-size:14px}
+.results{list-style:none;margin:0;padding:0}
+.results li{padding:6px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.results b{color:var(--pink-d)}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.links a{display:inline-block;border:2px solid var(--accent);color:var(--pink-d);text-decoration:none;border-radius:999px;padding:6px 14px;font-size:14px;background:#fff}
+.links a:hover{background:#ffeef4}
+.quiz .q{margin-bottom:14px}
+.quiz .opts{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.quiz .opts button.sel{background:var(--pink);border-color:var(--pink);color:#fff}
+.quiz .exp{font-size:13.5px;color:var(--sub);margin-top:6px}
+.soon{display:flex;justify-content:space-between;align-items:center;background:#fff;border:2px dashed var(--line);border-radius:14px;padding:10px 16px;margin-top:10px}
+.soon .nm{font-weight:700}
+.soon .cl{color:var(--sub);font-size:13px}
+.soon .st{color:var(--pink-d);font-size:13px;font-weight:700}
+.note{font-size:12.5px;color:var(--sub);margin-top:18px;line-height:1.6}
+.foot{text-align:center;margin-top:28px}
+.foot a{color:var(--sub);font-size:12.5px}
+.err{background:#ffe3e3;border:2px solid #e77;border-radius:12px;padding:10px 14px;color:#900;font-size:14px;margin:10px 0;display:none}
