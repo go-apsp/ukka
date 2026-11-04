@@ -58,13 +58,13 @@ async function loadComments(){
     cmts.sort(function(a,b){return a.t-b.t});
     hideErr();
   }catch(e){
-    showErr("感想を読み込めませんでした。時間をおいて開き直してみてください。");
+    showErr("コメントを読み込めませんでした。時間をおいて開き直してみてください。");
   }
   renderList();
 }
 function renderList(){
   var el=$("clist");
-  if(!cmts.length){el.innerHTML='<p class="empty">まだ感想がありません。最初の感想をどうぞ。</p>';return}
+  if(!cmts.length){el.innerHTML='<p class="empty">まだコメントがありません。最初のコメントをどうぞ。</p>';return}
   el.innerHTML=cmts.map(function(c){
     return '<button class="item" data-t="'+c.t+'"><span class="t">'+fmt(c.t)+'</span><span class="n">'+esc(c.name)+'</span>'+esc(c.text)+'</button>';
   }).join("");
@@ -181,7 +181,7 @@ $("ovtoggle").addEventListener("click",function(){
 $("addbtn").addEventListener("click",async function(){
   var name=$("nick").value.trim(),text=$("ctext").value.trim();
   if(!name){alert("ニックネームを入れてください");return}
-  if(!text){alert("感想を書いてください");return}
+  if(!text){alert("コメントを書いてください");return}
   if(!db){alert("まだ準備中です。少し待ってからお試しください");return}
   try{localStorage.setItem("ukka-nick",name)}catch(e){}
   var t=Math.floor(now()*10)/10;
@@ -191,7 +191,7 @@ $("addbtn").addEventListener("click",async function(){
     cmts.push({id:ref.id,name:name,text:text,t:t});cmts.sort(function(a,b){return a.t-b.t});
     renderList();$("ctext").value="";
   }catch(e){
-    alert("感想を追加できませんでした。時間をおいてお試しください。");
+    alert("コメントを追加できませんでした。時間をおいてお試しください。");
   }
   this.disabled=false;
 });

@@ -42,7 +42,7 @@ gtag('config', 'G-0RF123WR73');
       <button class="primary" id="vadd">動画を追加</button>
     </div>
 
-    <h2>感想の管理</h2>
+    <h2>コメントの管理</h2>
     <div class="row" style="margin-bottom:10px">
       <select id="cvsel" aria-label="動画を選ぶ"></select>
     </div>
@@ -107,7 +107,7 @@ async function loadComments(vid){
   arr.sort(function(a,b){return a.t-b.t});
   $("clist").innerHTML=arr.length?arr.map(function(c){
     return '<div class="item"><span class="t" style="color:var(--pink-d);font-weight:700;margin-right:8px">'+fmt(c.t)+'</span><span class="n" style="font-weight:700;margin-right:8px">'+esc(c.name)+'</span>'+esc(c.text)+' <button data-cdel="'+c.id+'">削除</button></div>';
-  }).join(""):'<p class="empty">感想はまだありません。</p>';
+  }).join(""):'<p class="empty">コメントはまだありません。</p>';
 }
 function parseId(s){
   s=(s||"").trim();if(!s)return "";
@@ -123,7 +123,7 @@ document.addEventListener("click",async function(ev){
   }
   var cdel=ev.target.closest("[data-cdel]");
   if(cdel){
-    if(!confirm("この感想を削除しますか？"))return;
+    if(!confirm("このコメントを削除しますか？"))return;
     await FB.deleteDoc(FB.doc(db,"comments",cdel.getAttribute("data-cdel")));loadComments($("cvsel").value);return;
   }
 });
