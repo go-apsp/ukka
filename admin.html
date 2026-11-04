@@ -80,8 +80,9 @@ async function init(){
     if(isAdmin){$("adminarea").style.display="block";loadVideos()}
     else{$("adminarea").style.display="none";showErr("このアカウントは管理者として登録されていません。")}
   });
+  auM.getRedirectResult(auM.getAuth(app)).catch(function(e){showErr("ログインできませんでした。（"+(e&&e.code?e.code:"")+"）")});
   $("login").addEventListener("click",function(){
-    auM.signInWithPopup(auM.getAuth(app),new auM.GoogleAuthProvider()).catch(function(){showErr("ログインできませんでした。")});
+    auM.signInWithRedirect(auM.getAuth(app),new auM.GoogleAuthProvider()).catch(function(e){showErr("ログインできませんでした。（"+(e&&e.code?e.code:"")+"）")});
   });
 }
 async function loadVideos(){
