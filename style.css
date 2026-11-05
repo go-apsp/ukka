@@ -127,3 +127,14 @@ table.prof .note{color:var(--sub);font-size:13px}
 .igcard .igm{font-weight:700;color:var(--pink-d);margin-right:8px}
 .igcard .igd{color:var(--sub);font-size:13px}
 .igcard p{margin:4px 0 0;font-size:14.5px}
+
+.iggroup{margin-top:14px}
+.iggh{display:flex;align-items:center;gap:8px;font-family:"Zen Maru Gothic","M PLUS Rounded 1c",sans-serif;font-weight:900;font-size:17px;margin:0 0 8px}
+.igdot{width:16px;height:16px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1.5px var(--line);display:inline-block}
+.igcard.c-riju{background:rgba(43,111,226,.10);border-color:rgba(43,111,226,.35)}
+.igcard.c-sora{background:rgba(18,181,165,.12);border-color:rgba(18,181,165,.40)}
+.igcard.c-yu{background:rgba(240,120,0,.10);border-color:rgba(240,120,0,.35)}
+.igcard.c-moa{background:rgba(242,183,5,.13);border-color:rgba(242,183,5,.45)}
+.igcard.c-ruri{background:rgba(155,126,217,.13);border-color:rgba(155,126,217,.40)}
+.igcard.c-koharu{background:rgba(255,255,255,.7);border-color:#d9c8d2}
+.igcard.c-rina{background:rgba(230,0,51,.08);border-color:rgba(230,0,51,.30)}
