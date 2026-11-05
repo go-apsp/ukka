@@ -120,3 +120,10 @@ table.prof .note{color:var(--sub);font-size:13px}
 .mbtn .go{display:inline-block;margin-top:9px;background:var(--pink);color:#fff;font-weight:700;font-size:13.5px;border-radius:999px;padding:4px 14px;box-shadow:0 2px 0 #e75480}
 .backnav{margin:4px 0 10px}
 .backnav a{color:var(--pink-d);font-weight:700;text-decoration:none}
+
+/* Instagram最新投稿フィード */
+.igfeed{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.igcard{display:block;background:#fff;border:2px solid var(--line);border-radius:16px;padding:11px 14px;text-decoration:none;color:inherit}
+.igcard .igm{font-weight:700;color:var(--pink-d);margin-right:8px}
+.igcard .igd{color:var(--sub);font-size:13px}
+.igcard p{margin:4px 0 0;font-size:14.5px}
