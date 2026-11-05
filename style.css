@@ -138,3 +138,7 @@ table.prof .note{color:var(--sub);font-size:13px}
 .igcard.c-ruri{background:rgba(155,126,217,.13);border-color:rgba(155,126,217,.40)}
 .igcard.c-koharu{background:rgba(255,255,255,.7);border-color:#d9c8d2}
 .igcard.c-rina{background:rgba(230,0,51,.08);border-color:rgba(230,0,51,.30)}
+
+/* Instagram公式プロフィール埋め込み */
+.igembed{max-width:540px;margin:16px auto 8px}
+.igembed .instagram-media{margin:0 auto !important;width:100% !important;min-width:0 !important}
