@@ -103,12 +103,20 @@ table.prof .note{color:var(--sub);font-size:13px}
 .err{background:#ffe3e3;border:2px solid #e77;border-radius:12px;padding:10px 14px;color:#900;font-size:14px;margin:10px 0;display:none}
 
 /* メンバーボタン一覧 */
-.mbtns{display:flex;flex-direction:column;gap:10px;margin-top:14px}
-.mbtn{display:block;background:var(--card);border:2px solid var(--line);border-radius:16px;padding:14px 16px;text-decoration:none;color:inherit}
-.mbtn:active{border-color:var(--pink)}
-.mbtn .bn{font-family:"Zen Maru Gothic","M PLUS Rounded 1c",sans-serif;font-size:19px;font-weight:900;display:block}
-.mbtn .bc{color:var(--sub);font-size:13px;display:block;margin-top:2px}
-.mbtn .bi{display:block;margin-top:6px;font-size:14.5px}
-.mbtn .go{color:var(--pink-d);font-weight:700;font-size:13.5px;display:block;margin-top:8px}
+.mbtns{display:flex;flex-direction:column;gap:12px;margin-top:14px}
+.mbtn{position:relative;display:block;background:linear-gradient(180deg,#ffffff,#ffe9f2);border:2.5px solid var(--pink);border-radius:24px;padding:14px 16px 14px 52px;text-decoration:none;color:inherit;box-shadow:0 4px 0 #e75480;transition:transform .08s,box-shadow .08s}
+.mbtn:active{transform:translateY(3px);box-shadow:0 1px 0 #e75480}
+.mbtn::before{content:"";position:absolute;left:16px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:50%;background:var(--mc,#f78fb3);border:2px solid #fff;box-shadow:0 0 0 2px var(--line)}
+.mbtn[href="rina.html"]{--mc:#e60033}
+.mbtn[href="riju.html"]{--mc:#2b6fe2}
+.mbtn[href="sora.html"]{--mc:#12b5a5}
+.mbtn[href="moa.html"]{--mc:#f2b705}
+.mbtn[href="ruri.html"]{--mc:#9b7ed9}
+.mbtn[href="yu.html"]{--mc:#f07800}
+.mbtn[href="koharu.html"]{--mc:#ffffff}
+.mbtn .bn{font-family:"Zen Maru Gothic","M PLUS Rounded 1c",sans-serif;font-size:20px;font-weight:900;display:block;color:var(--pink-d)}
+.mbtn .bc{color:var(--sub);font-size:13px;display:block;margin-top:1px}
+.mbtn .bi{display:block;margin-top:5px;font-size:14.5px}
+.mbtn .go{display:inline-block;margin-top:9px;background:var(--pink);color:#fff;font-weight:700;font-size:13.5px;border-radius:999px;padding:4px 14px;box-shadow:0 2px 0 #e75480}
 .backnav{margin:4px 0 10px}
 .backnav a{color:var(--pink-d);font-weight:700;text-decoration:none}
