@@ -24,15 +24,47 @@ gtag('config', 'G-0RF123WR73');
   <h2>ukkaメンバー紹介</h2>
   <p>ukkaは、2015年に桜エビ〜ずとして結成し、2019年にukkaへ名前を変えて活動してきました。2026年5月24日にはラストライブ『Final Chapter』が行われ、メンバーはそれぞれのステージへ進んでいます。『ukka』という名前には、サナギから蝶へ羽化するという意味が込められています。</p>
 
-  <div class="mbtns">
-    <a class="mbtn" href="rina.html"><span class="bn">結城りな</span><span class="bc">ペンライトカラー: 赤</span><span class="bi">笑顔の明るさと負けず嫌いの強さが魅力。『SASUKE』『KUNOICHI』にも挑む二刀流です</span><span class="go">紹介ページへ →</span></a>
-    <a class="mbtn" href="riju.html"><span class="bn">村星りじゅ</span><span class="bc">ペンライトカラー: 青</span><span class="bi">女神様。スターダストプロモーション所属。特技はゲームとモノマネです</span><span class="go">紹介ページへ →</span></a>
-    <a class="mbtn" href="sora.html"><span class="bn">茜空</span><span class="bc">ペンライトカラー: ターコイズ</span><span class="bi">InstagramとTikTokで発信中です</span><span class="go">紹介ページへ →</span></a>
-    <a class="mbtn" href="moa.html"><span class="bn">芹澤もあ</span><span class="bc">ペンライトカラー: 黄</span><span class="go">紹介ページへ →</span></a>
-    <a class="mbtn" href="ruri.html"><span class="bn">葵るり</span><span class="bc">ペンライトカラー: ラベンダー</span><span class="go">紹介ページへ →</span></a>
-    <a class="mbtn" href="yu.html"><span class="bn">宮沢友</span><span class="bc">ペンライトカラー: オレンジ</span><span class="go">紹介ページへ →</span></a>
-    <a class="mbtn" href="koharu.html"><span class="bn">若菜こはる</span><span class="bc">ペンライトカラー: 白</span><span class="go">紹介ページへ →</span></a>
+  <div class="mtabs" id="mtabs">
+    <button type="button" class="mtab on"><span class="mdot" style="background:#e60033"></span>結城りな</button>
+    <button type="button" class="mtab"><span class="mdot" style="background:#2b6fe2"></span>村星りじゅ</button>
+    <button type="button" class="mtab"><span class="mdot" style="background:#12b5a5"></span>茜空</button>
+    <button type="button" class="mtab"><span class="mdot" style="background:#f2b705"></span>芹澤もあ</button>
+    <button type="button" class="mtab"><span class="mdot" style="background:#9b7ed9"></span>葵るり</button>
+    <button type="button" class="mtab"><span class="mdot" style="background:#f07800"></span>宮沢友</button>
+    <button type="button" class="mtab"><span class="mdot" style="background:#ffffff"></span>若菜こはる</button>
   </div>
+  <div class="mpanel" id="mpanel">
+    <p class="mp-name" id="mpName">結城りな</p>
+    <p class="mp-color" id="mpColor">ペンライトカラー: 赤</p>
+    <p class="mp-intro" id="mpIntro">笑顔の明るさと負けず嫌いの強さが魅力。『SASUKE』『KUNOICHI』にも挑む二刀流です</p>
+    <a class="mp-go" id="mpGo" href="rina.html">紹介ページへ →</a>
+  </div>
+  <script>
+  (function(){
+    var M=[
+      {name:"結城りな",color:"赤",intro:"笑顔の明るさと負けず嫌いの強さが魅力。『SASUKE』『KUNOICHI』にも挑む二刀流です",href:"rina.html"},
+      {name:"村星りじゅ",color:"青",intro:"女神様。スターダストプロモーション所属。特技はゲームとモノマネです",href:"riju.html"},
+      {name:"茜空",color:"ターコイズ",intro:"InstagramとTikTokで発信中です",href:"sora.html"},
+      {name:"芹澤もあ",color:"黄",intro:"",href:"moa.html"},
+      {name:"葵るり",color:"ラベンダー",intro:"",href:"ruri.html"},
+      {name:"宮沢友",color:"オレンジ",intro:"",href:"yu.html"},
+      {name:"若菜こはる",color:"白",intro:"",href:"koharu.html"}
+    ];
+    var tabs=document.querySelectorAll("#mtabs .mtab");
+    var nameEl=document.getElementById("mpName"),colEl=document.getElementById("mpColor"),intEl=document.getElementById("mpIntro"),goEl=document.getElementById("mpGo");
+    function show(i){
+      var m=M[i];
+      nameEl.textContent=m.name;
+      colEl.textContent="ペンライトカラー: "+m.color;
+      intEl.textContent=m.intro;
+      intEl.style.display=m.intro?"":"none";
+      goEl.href=m.href;
+      for(var j=0;j<tabs.length;j++){tabs[j].classList.toggle("on",j===i);}
+    }
+    for(var i=0;i<tabs.length;i++){(function(idx){tabs[idx].addEventListener("click",function(){show(idx);});})(i);}
+    show(0);
+  })();
+  </script>
 
   <h2>メンバーの最新投稿（Instagram）</h2>
   <p class="intro">Instagramの最新投稿です（取得時点の内容を表示しています）</p>

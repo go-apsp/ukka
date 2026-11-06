@@ -142,3 +142,14 @@ table.prof .note{color:var(--sub);font-size:13px}
 /* Instagram公式プロフィール埋め込み */
 .igembed{max-width:540px;margin:16px auto 8px}
 .igembed .instagram-media{margin:0 auto !important;width:100% !important;min-width:0 !important}
+
+/* メンバー選択タブ（横7つ並び・小型）と詳細パネル */
+.mtabs{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:14px}
+.mtab{display:flex;flex-direction:column;align-items:center;gap:3px;background:#fff;border:2px solid var(--line);border-radius:14px;padding:7px 1px 6px;font-family:inherit;font-size:10.5px;font-weight:700;color:var(--sub);cursor:pointer;line-height:1.25;box-shadow:0 2px 0 var(--line);text-align:center}
+.mtab .mdot{width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1.5px var(--line);flex:none}
+.mtab.on{background:linear-gradient(180deg,#ffffff,#ffe9f2);border-color:var(--pink);color:var(--pink-d);box-shadow:0 2px 0 #e75480}
+.mpanel{margin-top:12px;background:linear-gradient(180deg,#ffffff,#ffe9f2);border:2.5px solid var(--pink);border-radius:24px;padding:16px;box-shadow:0 4px 0 #e75480;text-align:center}
+.mp-name{font-family:"Zen Maru Gothic","M PLUS Rounded 1c",sans-serif;font-size:24px;font-weight:900;color:var(--pink-d);margin:0}
+.mp-color{color:var(--sub);font-size:13.5px;margin:2px 0 0}
+.mp-intro{font-size:15px;margin:8px 0 0}
+.mp-go{display:inline-block;margin-top:12px;background:var(--pink);color:#fff;font-weight:700;font-size:15px;border-radius:999px;padding:8px 22px;box-shadow:0 2px 0 #e75480;text-decoration:none}
