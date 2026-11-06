@@ -21,8 +21,9 @@ gtag('config', 'G-0RF123WR73');
   <p class="making">制作中です。（永遠に制作中かも…）</p>
   <h1>ukkaを楽しむ</h1>
 
-  <h2>ukkaメンバー紹介</h2>
-  <p>ukkaは、2015年に桜エビ〜ずとして結成し、2019年にukkaへ名前を変えて活動してきました。2026年5月24日にはラストライブ『Final Chapter』が行われ、メンバーはそれぞれのステージへ進んでいます。『ukka』という名前には、サナギから蝶へ羽化するという意味が込められています。</p>
+  <section data-section="members">
+  <h2 data-tkey="members.title">ukkaメンバー紹介</h2>
+  <p data-tkey="members.intro">ukkaは、2015年に桜エビ〜ずとして結成し、2019年にukkaへ名前を変えて活動してきました。2026年5月24日にはラストライブ『Final Chapter』が行われ、メンバーはそれぞれのステージへ進んでいます。『ukka』という名前には、サナギから蝶へ羽化するという意味が込められています。</p>
 
   <div class="mtabs" id="mtabs">
     <button type="button" class="mtab on"><span class="mdot" style="background:#e60033"></span>結城りな</button>
@@ -65,9 +66,11 @@ gtag('config', 'G-0RF123WR73');
     show(0);
   })();
   </script>
+  </section>
 
-  <h2>メンバーの最新投稿（Instagram）</h2>
-  <p class="intro">Instagramの最新投稿です（取得時点の内容を表示しています）</p>
+  <section data-section="feed">
+  <h2 data-tkey="feed.title">メンバーの最新投稿（Instagram）</h2>
+  <p class="intro" data-tkey="feed.note">Instagramの最新投稿です（取得時点の内容を表示しています）</p>
   <div class="igfeed" id="igfeed">
   <div class="iggroup">
     <p class="iggh"><span class="igdot" style="background:#e60033"></span>結城りな</p>
@@ -95,8 +98,10 @@ gtag('config', 'G-0RF123WR73');
   </div>
   
   </div>
+  </section>
 
-  <p class="intro">ukkaのライブ動画を観ながら、コメントを重ねていける場所です。</p>
+  <section data-section="video">
+  <p class="intro" data-tkey="video.intro">ukkaのライブ動画を観ながら、コメントを重ねていける場所です。</p>
 
   <div class="err" id="err"></div>
 
@@ -140,12 +145,16 @@ gtag('config', 'G-0RF123WR73');
 
   <h2>コメント一覧</h2>
   <div class="list" id="clist"><p class="empty">読み込み中…</p></div>
+  </section>
 
-  <p class="note">このページはファンが個人で作成した非公式ファンページです。メンバーご本人、ukka、スターダストプロモーション、TBSとは関係ありません。各メンバーの現在の所属・活動は、公式発表や報道で確認できた範囲で記載しています（準備中のところは『準備中』と書いています）。最新情報は公式サイト・公式SNSでご確認ください。</p>
+  <section data-section="free"><div id="freearea"></div></section>
+
+  <p class="note" data-section="note" data-tkey="page.note">このページはファンが個人で作成した非公式ファンページです。メンバーご本人、ukka、スターダストプロモーション、TBSとは関係ありません。各メンバーの現在の所属・活動は、公式発表や報道で確認できた範囲で記載しています（準備中のところは『準備中』と書いています）。最新情報は公式サイト・公式SNSでご確認ください。</p>
 
   <div class="foot"><a href="admin.html">管理画面</a></div>
 </div>
 <script src="config.js"></script>
 <script src="app.js"></script>
+<script src="edit.js"></script>
 </body>
 </html>
