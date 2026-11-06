@@ -88,7 +88,7 @@ function blockHTML(b,imgs,children){
 async function init(){
   var appM=await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js");
   var fsM=await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js");
-  var app=appM.initializeApp(window.FB_CONFIG);
+  var app=appM.initializeApp(window.FB_CONFIG,"pe");
   var db=fsM.getFirestore(app);
   try{
     var sm=await fsM.getDoc(fsM.doc(db,"siteMeta","sections"));
