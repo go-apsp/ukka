@@ -88,7 +88,7 @@ async function init(){
   });
   auM.getRedirectResult(auM.getAuth(app)).catch(function(e){showErr("ログインできませんでした。（"+(e&&e.code?e.code:"")+"）")});
   $("login").addEventListener("click",function(){
-    auM.signInWithRedirect(auM.getAuth(app),new auM.GoogleAuthProvider()).catch(function(e){showErr("ログインできませんでした。（"+(e&&e.code?e.code:"")+"）")});
+    auM.signInWithPopup(auM.getAuth(app),new auM.GoogleAuthProvider()).catch(function(e){showErr("ログインできませんでした。（"+(e&&e.code?e.code:"")+"）")});
   });
 }
 async function loadVideos(){
