@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ページ</title>
+<title>ページ | ukkaを楽しむ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Zen+Maru+Gothic:wght@700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -22,9 +22,135 @@ window.PAGE_AREA = "page:" + (new URLSearchParams(location.search).get("p") || "
 <div class="wrap">
   <p><a href="index.html">← ukkaを楽しむ に戻る</a></p>
   <h1 id="ptitle" style="font-size:24px">ページ</h1>
+  <div id="presetarea"></div>
   <div id="freearea"></div>
   <div class="foot"><a href="admin.html">管理画面</a></div>
 </div>
+<script>
+(function(){
+  var p = (new URLSearchParams(location.search).get("p") || "").toLowerCase();
+  if (p === "rinanano.html" || p === "rinanano") {
+    document.title = "りななの（結城りな＆青山菜花） | ukkaを楽しむ";
+    var pt = document.getElementById("ptitle");
+    if (pt) pt.textContent = "ユニット「りななの」紹介";
+    var host = document.getElementById("presetarea");
+    if (host) {
+      host.innerHTML = "  <div class=\"member\" id=\"rinanano\">
+    <p class=\"mname\">りななの（結城りな ＆ 青山菜花）</p>
+    <p class=\"yomi\">YUKI RINA × AOYAMA NANOHA ／ スターダストプロモーション（STAR PLANET）ユニット</p>
+    <p class=\"lead\">スターダストプロモーション（STAR PLANET）所属の結城りなちゃんと青山菜花ちゃんによるユニット「りななの」。アコースティックギターの弾き語りデュオから、息ぴったりのボーカル＆ダンスステージ、朗読劇や配信イベントでの共演まで、2人の名前を合わせたユニット名の通り明るく温かいハーモニーを届けています。先輩・後輩の枠を超えた仲の良さと、見る人を笑顔にするまっすぐな歌声が魅力です。</p>
+    <div class=\"tags\">
+      <span class=\"tag\">結城りな × 青山菜花</span>
+      <span class=\"tag\">ギター弾き語り＆ボーカルデュオ</span>
+      <span class=\"tag\">POP GALAXY 2026 出演</span>
+      <span class=\"tag\">ながいきフェスタ in 桃神祭 出演</span>
+    </div>
+    <h3>りななの 動画</h3>
+    <div class=\"mvwrap\" style=\"margin:12px 0 16px\">
+      <div class=\"frame\">
+        <iframe src=\"https://www.youtube.com/embed/c38xhjLvVhg\" title=\"りななの 動画\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen style=\"border:0;width:100%;height:100%\"></iframe>
+      </div>
+    </div>
+    <h3>ユニット・メンバープロフィール</h3>
+    <p>「ukkaギター部」でもアコースティックギターの弾き語りに挑戦してきた結城りなと、透明感ある歌声とピアノ・童謡歌唱を得意とする青山菜花がタッグを組み、2026年夏から本格的にイベントやフェスへ出演しています。</p>
+    <table class=\"prof\">
+      <tr><th>ユニット名</th><td>りななの <span class=\"note\">結城りな（りな）＋青山菜花（なの）によるデュオ</span></td></tr>
+      <tr><th>結城 りな</th><td>2003年4月9日生まれ（東京都出身・AB型・157cm）<br><span class=\"note\">スターダストプロモーション（STAR PLANET）所属。ukka（ペンライトカラー: 赤）として活動し、『SASUKE』『KUNOICHI』にも挑む二刀流タレント</span></td></tr>
+      <tr><th>青山 菜花</th><td>2008年9月10日生まれ（東京都出身・A型・163.2cm）<br><span class=\"note\">スターダストプロモーション（STAR PLANET）所属。B.O.L.T、浪江女子発組合・LumiUnionを経てソロ・ユニットで活動中。趣味は童謡を歌うこと・ピアノ、資格は乗馬ライセンス5級</span></td></tr>
+      <tr><th>主なスタイル</th><td>アコースティックギター弾き語り ／ ボーカル＆ダンスパフォーマンス</td></tr>
+    </table>
+    <h3>りななのの主な活動・ステージ</h3>
+    <div class=\"actgrid\">
+      <div class=\"act\"><span class=\"lab\">FES STAGE — 2026.10.18</span><h4>「ももクロ秋の桃神祭2026」内『ながいきフェスタ in 桃神祭』出演</h4><p>千葉県長生村・尼ケ台総合公園で開催された『ながいきフェスタ in 桃神祭』（DAY2）に「りななの（結城りな＆青山菜花）」として出演。「またキミと。」など初めて歌って踊るステージも披露し、鈴木萌花さんとの合同特典会も開催されました。</p></div>
+      <div class=\"act\"><span class=\"lab\">ACOUSTIC DUO — 2026.08.15</span><h4>ガールズポップフェス『POP GALAXY 2026』にギター弾き語りデュオで出演</h4><p>お台場R地区で開催された『POP GALAXY 2026』（DAY1 NOVA STAGE）にギター弾き語りデュオとして登場。夏空の下で2人のアコースティックギターと歌声を響かせました。</p></div>
+      <div class=\"act\"><span class=\"lab\">ONLINE LIVE &amp; COOKING — 2026.07-08</span><h4>リミスタ合同オンラインフリーライブ＆『スタプラSPクッキング』</h4><p>2026年7月11日にリミスタで「結城りな＆青山菜花 オンラインフリーライブ＆トーク・サイン会」を開催。8月30日にはNATSLIVE『スタプラSPクッキング』でも村星りじゅ・嶋田莉奈とともに共演しました。</p></div>
+      <div class=\"act\"><span class=\"lab\">READING DRAMA &amp; LIVE — 2026.07-11</span><h4>朗読劇『コトバノコトバ』『アイディール・セミナー』＆『#スタダ顔 ライブ』</h4><p>7月の『アイディール・セミナー/Final session-Replay-』、9月の朗読劇『コトバノコトバ』（CBGKシブゲキ!!）に揃って出演。2026年11月24日開催の『#スタダ顔 ライブ 〜まじで頑張ろ！女のスタダ！〜』（恵比寿ザ・ガーデンホール）にもともに出演予定です。</p></div>
+    </div>
+    <div class=\"links\">
+      <a href=\"https://youtu.be/c38xhjLvVhg\" target=\"_blank\" rel=\"noopener\">▶ りななの 動画（YouTube） ↗</a>
+      <a href=\"https://stardust-web.com/yuukirina\" target=\"_blank\" rel=\"noopener\">結城りな「りなといっしょ」（STARDUST WEB） ↗</a>
+      <a href=\"https://www.stardust.co.jp/talent/starplanet/yuukirina/\" target=\"_blank\" rel=\"noopener\">結城りな 公式プロフィール ↗</a>
+      <a href=\"https://www.stardust.co.jp/talent/starplanet/aoyamananoha/\" target=\"_blank\" rel=\"noopener\">青山菜花 公式プロフィール ↗</a>
+      <a href=\"https://blog.stardust.co.jp/stardustplanet/archives/22625\" target=\"_blank\" rel=\"noopener\">スタプラブログ「菜花の時間」 ↗</a>
+      <a href=\"https://www.momoclo.net/tohjinsai2026/park.html\" target=\"_blank\" rel=\"noopener\">ながいきフェスタ in 桃神祭 特設ページ ↗</a>
+      <a href=\"https://limista.com/projects/7559\" target=\"_blank\" rel=\"noopener\">リミスタ オンラインフリーライブ詳細 ↗</a>
+      <a href=\"rina.html\">← 結城りなの紹介ページへ</a>
+    </div>
+    <h3>りななのの魅力</h3>
+    <p>ファン目線で挙げるなら、やっぱりこの3つ。2人だからこそ生まれる化学反応です。</p>
+    <ol class=\"charm\">
+      <li><b>アコースティックギター弾き語りと歌って踊るステージの二刀流</b><br>『POP GALAXY 2026』で見せた2人でのアコギ弾き語りから、『ながいきフェスタ in 桃神祭』で初披露してファンを驚かせた歌って踊るパフォーマンスまで、ステージごとに新鮮な表情を見せてくれます。</li>
+      <li><b>まっすぐで力強い歌声×透明感あふれる歌声のハーモニー</b><br>結城りなの芯のある明るいボーカルと、青山菜花の伸びやかで澄んだ歌声が重なることで、カバー曲でもオリジナル曲でも耳に残る心地よいハーモニーが生まれます。</li>
+      <li><b>舞台・朗読劇・配信でも息ぴったりの姉妹のような関係性</b><br>『アイディール・セミナー』や『コトバノコトバ』などの朗読劇、料理配信や特典会まで、どの現場でも自然体で笑い合う2人の温かい空気感がそのままステージの魅力につながっています。</li>
+    </ol>
+    <h3>歩み（2026年）</h3>
+    <p>オンラインライブから夏フェス、桃神祭の外周ステージまで広がる「りななの」の軌跡。</p>
+    <ul class=\"tl\">
+      <li><span class=\"dt\">2026 7.11</span> <span class=\"tt\">結城りな＆青山菜花 オンラインフリーライブ開催</span><p>リミスタにて2人のソロパフォーマンス生配信とコラボ、オンライントーク・サイン会を開催しました。</p></li>
+      <li><span class=\"dt\">2026 7.25〜8.1</span> <span class=\"tt\">『アイディール・セミナー/Final session-Replay-』共演</span><p>シアター1010での本公演および8月1日・渋谷音楽堂での後夜祭スペシャルセッションに出演しました。</p></li>
+      <li><span class=\"dt\">2026 8.15</span> <span class=\"tt\">『POP GALAXY 2026』にギター弾き語りデュオで出演</span><p>お台場R地区・NOVA STAGEに「りななの（結城りな＆青山菜花）」として出演し、アコギ弾き語りを披露しました。</p></li>
+      <li><span class=\"dt\">2026 8.30 / 9.2〜6</span> <span class=\"tt\">『スタプラSPクッキング』＆朗読劇『コトバノコトバ』</span><p>NATSLIVEでの料理配信や、CBGKシブゲキ!!での朗読劇『コトバノコトバ』に揃って出演しました。</p></li>
+      <li><span class=\"dt\">2026 10.18</span> <span class=\"tt\">『ながいきフェスタ in 桃神祭』出演</span><p>ももクロ秋の桃神祭2026の外周ステージに登場。「りななの」として初めて歌って踊るステージも披露しました。</p></li>
+      <li><span class=\"dt\">2026 11.24</span> <span class=\"tt\">『#スタダ顔 ライブ 〜まじで頑張ろ！女のスタダ！〜』出演予定</span><p>恵比寿ザ・ガーデンホールにて開催されるスタプラのライブイベントに揃って出演予定です。</p></li>
+    </ul>
+    <h3>りななのクイズ</h3>
+    <div class=\"quiz\" id=\"quiz\"></div>
+  </div>";
+      var QUIZ = [
+ {
+  "q": "ユニット「りななの」の2人のメンバーの組み合わせは？",
+  "opts": [
+   "結城りな ＆ 青山菜花",
+   "結城りな ＆ 茜空",
+   "結城りな ＆ 葵るり"
+  ],
+  "ans": 0,
+  "exp": "結城りなさんと青山菜花さんの2人によるユニットで、2人の名前から「りななの」と名付けられました。"
+ },
+ {
+  "q": "2026年8月15日にお台場R地区で開催され、「りななの」がギター弾き語りデュオとして出演したフェスは？",
+  "opts": [
+   "POP GALAXY 2026",
+   "TOKYO IDOL FESTIVAL",
+   "夏S 2026"
+  ],
+  "ans": 0,
+  "exp": "「POP GALAXY 2026」（DAY1 NOVA STAGE）。2人でのアコースティックギター弾き語りと特典会を行いました。"
+ },
+ {
+  "q": "2026年10月18日に「りななの」が出演し、初めて歌って踊るステージも披露したイベントは？",
+  "opts": [
+   "ながいきフェスタ in 桃神祭",
+   "スタプラフェス",
+   "ももいろ歌合戦"
+  ],
+  "ans": 0,
+  "exp": "千葉県長生村で開催された「ももクロ秋の桃神祭2026」内の「ながいきフェスタ in 桃神祭」です。"
+ }
+];
+      function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+      var qz = document.getElementById("quiz");
+      if (qz) {
+        qz.innerHTML = QUIZ.map(function(it,qi){
+          return '<div class="q"><b>Q'+(qi+1)+". "+esc(it.q)+'</b><div class="opts">'+
+            it.opts.map(function(o,oi){return '<button data-q="'+qi+'" data-o="'+oi+'">'+esc(o)+'</button>'}).join("")+
+            '</div><p class="exp" id="exp'+qi+'" style="display:none"></p></div>';
+        }).join("");
+        qz.addEventListener("click",function(ev){
+          var qb=ev.target.closest(".quiz .opts button");
+          if(qb){
+            var qi=+qb.getAttribute("data-q"),oi=+qb.getAttribute("data-o"),it2=QUIZ[qi];
+            var box=qb.parentElement;box.querySelectorAll("button").forEach(function(b){b.classList.remove("sel")});
+            qb.classList.add("sel");
+            var ex=document.getElementById("exp"+qi);ex.style.display="block";
+            ex.textContent=(oi===it2.ans?"正解！ ":"残念、正解は「"+it2.opts[it2.ans]+"」。 ")+it2.exp;
+          }
+        });
+      }
+    }
+  }
+})();
+</script>
 <script src="config.js"></script>
 <script src="edit.js"></script>
 </body>
