@@ -214,7 +214,13 @@ $("addbtn").addEventListener("click",async function(){
     if(pos==="outside"){$("ovl").classList.remove("inside");$("ovl").classList.add("outside");$("ovtoggle").textContent="表示: 枠外"}
   }catch(e){}
   renderQuiz();
-  loadYT();
+  var ytStarted=false;
+  function startYT(){if(ytStarted)return;ytStarted=true;loadYT()}
+  if(window.__peDone){startYT()}
+  else{
+    window.addEventListener("pe-done",startYT);
+    setTimeout(startYT,2500);
+  }
   initFB().then(loadVideos).then(loadComments).catch(function(){showErr("読み込みに失敗しました。開き直してみてください。")});
 })();
 })();
