@@ -101,8 +101,13 @@ async function init(){
       if(sd.order&&sd.order.length&&secs.length){
         var parent=secs[0].parentNode;
         var map={};
-        secs.forEach(function(el){map[el.getAttribute("data-section")]=el});
-        sd.order.forEach(function(k){if(map[k])parent.appendChild(map[k])});
+        var curKeys=[];
+        secs.forEach(function(el){var k=el.getAttribute("data-section");map[k]=el;curKeys.push(k)});
+        var listed=sd.order.filter(function(k){return map[k]});
+        var unlisted=curKeys.filter(function(k){return listed.indexOf(k)<0});
+        var finalKeys=unlisted.concat(listed);
+        var same=finalKeys.length===curKeys.length&&finalKeys.every(function(k,i){return k===curKeys[i]});
+        if(!same){listed.forEach(function(k){parent.appendChild(map[k])})}
       }
     }
   }catch(e){}
@@ -159,5 +164,5 @@ async function init(){
     });
   }catch(e){}
 }
-document.addEventListener("DOMContentLoaded",function(){init().catch(function(){})});
+document.addEventListener("DOMContentLoaded",function(){init().catch(function(){}).then(function(){window.__peDone=true;try{window.dispatchEvent(new Event("pe-done"))}catch(e){}})});
 })();
