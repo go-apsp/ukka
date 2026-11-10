@@ -134,7 +134,8 @@ var QUIZ=[
  {q:"『SASUKE 43』での結城りなさんのゼッケン番号は？",opts:["16番","24番","41番"],ans:2,exp:"41番。アイドル予選会2025で優勝し、本戦への出場権を掴みました。"}
 ];
 function renderQuiz(){
-  $("quiz").innerHTML=QUIZ.map(function(it,qi){
+  var qz=$("quiz");if(!qz)return; // トップページにはクイズ欄が無いので、その場合は何もしない（以前はここで止まって動画とコメントも読み込まれなかった）
+  qz.innerHTML=QUIZ.map(function(it,qi){
     return '<div class="q"><b>Q'+(qi+1)+". "+esc(it.q)+'</b><div class="opts">'+
       it.opts.map(function(o,oi){return '<button data-q="'+qi+'" data-o="'+oi+'">'+esc(o)+'</button>'}).join("")+
       '</div><p class="exp" id="exp'+qi+'" style="display:none"></p></div>';
