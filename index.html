@@ -39,11 +39,12 @@ gtag('config', 'G-0RF123WR73');
     <p class="mp-color" id="mpColor">ペンライトカラー: 赤</p>
     <p class="mp-intro" id="mpIntro">笑顔の明るさと負けず嫌いの強さが魅力。『SASUKE』『KUNOICHI』にも挑む二刀流です</p>
     <a class="mp-go" id="mpGo" href="rina.html">紹介ページへ →</a>
+    <a class="mp-go" id="mpStage" href="rina-stage.html" style="margin-left:8px">舞台特集へ →</a>
   </div>
   <script>
   (function(){
     var M=[
-      {name:"結城りな",color:"赤",intro:"笑顔の明るさと負けず嫌いの強さが魅力。『SASUKE』『KUNOICHI』にも挑む二刀流です",href:"rina.html"},
+      {name:"結城りな",color:"赤",intro:"笑顔の明るさと負けず嫌いの強さが魅力。『SASUKE』『KUNOICHI』にも挑む二刀流です",href:"rina.html",stage:"rina-stage.html"},
       {name:"村星りじゅ",color:"青",intro:"女神様。スターダストプロモーション所属。特技はゲームとモノマネです",href:"riju.html"},
       {name:"茜空",color:"ターコイズ",intro:"InstagramとTikTokで発信中です",href:"sora.html"},
       {name:"芹澤もあ",color:"黄",intro:"妹2人とのYouTubeチャンネル「芹澤3姉妹」も配信中です",href:"moa.html"},
@@ -52,7 +53,7 @@ gtag('config', 'G-0RF123WR73');
       {name:"若菜こはる",color:"白",intro:"スターダストプロモーション所属。特技はピアノ・水泳・走ることです",href:"koharu.html"}
     ];
     var tabs=document.querySelectorAll("#mtabs .mtab");
-    var nameEl=document.getElementById("mpName"),colEl=document.getElementById("mpColor"),intEl=document.getElementById("mpIntro"),goEl=document.getElementById("mpGo");
+    var nameEl=document.getElementById("mpName"),colEl=document.getElementById("mpColor"),intEl=document.getElementById("mpIntro"),goEl=document.getElementById("mpGo"),stageEl=document.getElementById("mpStage");
     function show(i){
       var m=M[i];
       nameEl.textContent=m.name;
@@ -60,6 +61,7 @@ gtag('config', 'G-0RF123WR73');
       intEl.textContent=m.intro;
       intEl.style.display=m.intro?"":"none";
       goEl.href=m.href;
+      if(m.stage){stageEl.href=m.stage;stageEl.style.display="";}else{stageEl.style.display="none";}
       for(var j=0;j<tabs.length;j++){tabs[j].classList.toggle("on",j===i);}
     }
     for(var i=0;i<tabs.length;i++){(function(idx){tabs[idx].addEventListener("click",function(){show(idx);});})(i);}
