@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>若菜こはる 紹介ページ | ukkaを楽しむ</title>
+  <style>
+    :root {
+      --penlight-color: #ffffff;
+      --penlight-accent: #e2e8f0;
+      --text-main: #334155;
+      --text-sub: #64748b;
+      --bg-page: #f8fafc;
+      --card-bg: #ffffff;
+    }
+    body {
+      margin: 0;
+      font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+      border-bottom: 4px solid var(--penlight-accent);
+      padding: 24px 16px;
+      text-align: center;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--text-sub);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .member-title {
+      margin: 0;
+      font-size: 1.8rem;
+      letter-spacing: 0.05em;
+    }
+    .member-kana {
+      margin: 4px 0 0;
+      color: var(--text-sub);
+      font-size: 0.95rem;
+    }
+    .penlight-badge {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 4px 14px;
+      background-color: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+    .section-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+      border: 1px solid #e2e8f0;
+    }
+    .section-title {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 1.25rem;
+      border-left: 5px solid #94a3b8;
+      padding-left: 12px;
+    }
+    .profile-list {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      row-gap: 10px;
+      margin: 0;
+    }
+    .profile-list dt {
+      font-weight: bold;
+      color: var(--text-sub);
+    }
+    .profile-list dd {
+      margin: 0;
+    }
+    .sns-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .sns-btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 10px;
+      background-color: #334155;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: bold;
+    }
+    .sns-btn:hover {
+      opacity: 0.9;
+    }
+    .placeholder-box {
+      padding: 16px;
+      background-color: #f1f5f9;
+      border-radius: 10px;
+      color: var(--text-sub);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="back-link">← トップページへ戻る</a>
+    <h1 class="member-title" data-site-text="koharu_name">若菜 こはる</h1>
+    <p class="member-kana" data-site-text="koharu_kana">わかな こはる（愛称：こは / こはちゃん）</p>
+    <span class="penlight-badge">ペンライトカラー：白</span>
+  </header>
+
+  <main>
+    <!-- 紹介テキスト領域（管理画面のページ編集ツール対応） -->
+    <section class="section-card" id="block-intro" data-page-block="koharu_intro">
+      <h2 class="section-title">こはるちゃんの魅力</h2>
+      <p>
+        素直で艶のある歌声が魅力の、グループの最年少メンバーです。スタプラ研究生での活動を経て、2023年10月に宮沢友ちゃんとともに新メンバーとして発表され、坂井小春から「若菜こはる」へと改名して同年11月24日に加入しました。
+      </p>
+      <p>
+        2024年1月には東京・LIQUIDROOMで開催された新体制初のワンマンライブのステージに立ち、フレッシュな笑顔とパフォーマンスでグループに新しい風を届けています。
+      </p>
+    </section>
+
+    <!-- 基本プロフィール -->
+    <section class="section-card" id="block-profile" data-page-block="koharu_profile">
+      <h2 class="section-title">基本プロフィール</h2>
+      <dl class="profile-list">
+        <dt>生年月日</dt>
+        <dd>2010年3月2日</dd>
+        <dt>出身地</dt>
+        <dd>東京都</dd>
+        <dt>血液型</dt>
+        <dd>AB型</dd>
+        <dt>身長</dt>
+        <dd>160cm</dd>
+        <dt>趣味・特技</dt>
+        <dd>ピアノ、歌うこと、水泳、走ること</dd>
+        <dt>所属</dt>
+        <dd>スターダストプロモーション</dd>
+        <dt>ペンライトカラー</dt>
+        <dd>白</dd>
+      </dl>
+    </section>
+
+    <!-- ユニット・音楽活動 -->
+    <section class="section-card" id="block-music" data-page-block="koharu_music">
+      <h2 class="section-title">ユニット・音楽活動</h2>
+      <p>
+        グループ結成10周年プロジェクトの第1弾企画として、宮沢友ちゃんとともに「TEAM CUTE」のユニット<strong>「RizziE（リジー）」</strong>を結成しました。
+      </p>
+      <p>
+        2025年5月28日にデジタル配信された楽曲『R・I・Z・Z』（アールアイジージー）は、同年7月19日に開催された「ukka 10th Anniversary Live vol.4」（Veats Shibuya・第2部）にて初披露されました。また、2025年11月リリースのアニバーサリーアルバム『青春小節〜約束と衝動〜』や、同年12月に全69曲を披露したワンマンライブ「ALLOUT 3rd」など、数々の大切なステージを重ねています。
+      </p>
+    </section>
+
+    <!-- 公式SNS・リンク -->
+    <section class="section-card" id="block-sns" data-page-block="koharu_sns">
+      <h2 class="section-title">公式プロフィール・SNS</h2>
+      <div class="sns-links">
+        <a class="sns-btn" href="https://www.stardust.co.jp/talent/starplanet/wakanakoharu/" target="_blank" rel="noopener noreferrer">
+          公式プロフィール
+        </a>
+        <a class="sns-btn" href="https://www.instagram.com/koharu.wakana_official" target="_blank" rel="noopener noreferrer">
+          Instagram (@koharu.wakana_official)
+        </a>
+        <a class="sns-btn" href="https://www.tiktok.com/@ukka_koharu" target="_blank" rel="noopener noreferrer">
+          TikTok (@ukka_koharu)
+        </a>
+      </div>
+    </section>
+
+    <!-- 最新投稿・今後の活動情報 -->
+    <section class="section-card" id="block-updates" data-page-block="koharu_updates">
+      <h2 class="section-title">最新の活動・投稿フィード</h2>
+      <div class="placeholder-box">
+        準備中
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
