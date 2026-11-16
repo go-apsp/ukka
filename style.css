@@ -139,6 +139,15 @@ table.prof .note{color:var(--sub);font-size:13px}
 .igcard.c-koharu{background:rgba(255,255,255,.7);border-color:#d9c8d2}
 .igcard.c-rina{background:rgba(230,0,51,.08);border-color:rgba(230,0,51,.30)}
 
+/* YouTube埋め込みカード */
+.ytscroll{max-height:72vh;overflow-y:auto;-webkit-overflow-scrolling:touch;background:rgba(242,183,5,.07);border:2px solid rgba(242,183,5,.45);border-radius:16px;padding:10px;margin-top:10px}
+.ytgrid{display:flex;flex-direction:column;gap:10px}
+.ytcard{display:block;background:#fff;border:2px solid rgba(242,183,5,.45);border-radius:16px;padding:10px;color:inherit}
+.ytembed{display:block;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#000;margin-top:8px}
+.ytembed iframe{width:100%;height:100%;border:0;display:block}
+.ytdate{display:block;color:var(--sub);font-size:12.5px}
+.yttitle{display:block;font-weight:700;font-size:15px;line-height:1.5;margin-top:1px}
+
 /* Instagram公式プロフィール埋め込み */
 .igembed{max-width:540px;margin:16px auto 8px}
 .igembed .instagram-media{margin:0 auto !important;width:100% !important;min-width:0 !important}
