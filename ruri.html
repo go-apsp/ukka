@@ -21,27 +21,88 @@ gtag('config', 'G-0RF123WR73');
   <div class="member">
     <p class="mname">葵るり</p>
     <p class="yomi">ペンライトカラー: ラベンダー</p>
+
+    <p class="lead">
+      明るい笑顔が魅力の葵るりさん。グミを愛する一面や、卓球が得意なところも注目ポイントです。どこでも寝られるという特技も持っています。
+    </p>
+
+    <div class="tags">
+      <span class="tag">ペンライトカラー: ラベンダー</span>
+      <span class="tag">グミ好き</span>
+      <span class="tag">卓球</span>
+      <span class="tag">どこでも寝られる</span>
+    </div>
+
     <div class="igembed"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/aoi.ruri_official/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"><a href="https://www.instagram.com/aoi.ruri_official/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener">葵るりのInstagramプロフィールを見る</a></blockquote></div>
+
     <h3>プロフィール</h3>
     <table class="prof">
-      <tr><th>基本プロフィール</th><td>基本プロフィール: 2004年7月20日生まれ、神奈川県出身、B型、身長162cm、特技は卓球・どこでも寝られる</td></tr>
+      <tr><th>生年月日</th><td>2004年7月20日</td></tr>
+      <tr><th>出身地</th><td>神奈川県</td></tr>
+      <tr><th>血液型</th><td>B型</td></tr>
+      <tr><th>身長</th><td>162cm</td></tr>
+      <tr><th>特技</th><td>卓球・どこでも寝られる</td></tr>
       <tr><th>所属</th><td>現在もスターダストプロモーションに所属</td></tr>
-      <tr><th>加入</th><td>ペンライトカラーはラベンダー、ukka加入は2021年9月25日（結城りなと同時。Wikipedia由来）</td></tr>
+      <tr><th>ukka加入</th><td>2021年9月25日（結城りなと同時。Wikipedia由来）</td></tr>
+      <tr><th>ペンライトカラー</th><td>ラベンダー</td></tr>
     </table>
+
     <h3>活動・お知らせ</h3>
-    <ul>
-      <li>2026年7月26日「浅草花劇場 SUMMER STAGE」に出演</li>
-      <li>日本グミ協会 名誉会員（2023年就任）</li>
-      <li>MBSラジオ「ヤンヤンガールズ」17期生（Wikipedia由来。MBS公式での裏取りは未完了）</li>
-    </ul>
+    <div class="actgrid">
+      <div class="act">
+        <span class="lab">出演</span>
+        <h4>浅草花劇場 SUMMER STAGE</h4>
+        <p>2026年7月26日出演</p>
+      </div>
+      <div class="act">
+        <span class="lab">日本グミ協会</span>
+        <h4>名誉会員</h4>
+        <p>2023年就任。グミを愛する葵るりさんらしい活動です。</p>
+      </div>
+      <div class="act">
+        <span class="lab">ラジオ</span>
+        <h4>MBSラジオ「ヤンヤンガールズ」17期生</h4>
+        <p>（Wikipedia由来。MBS公式での裏取りは未完了）</p>
+      </div>
+    </div>
+
     <h3>リンク</h3>
     <div class="links">
       <a href="https://www.instagram.com/aoi.ruri_official" target="_blank" rel="noopener">Instagram @aoi.ruri_official ↗</a>
       <a href="https://www.tiktok.com/@aoi.ruri_offcial" target="_blank" rel="noopener">TikTok @aoi.ruri_offcial ↗</a>
     </div>
+
+    <h3>葵るりクイズ</h3>
+    <div class="quiz" id="quiz"></div>
   </div>
   <p class="note">このページはファンが個人で作成した非公式ファンページです。メンバーご本人、ukka、スターダストプロモーション、TBSとは関係ありません。記載内容は、公式発表や報道で確認できた範囲で記載しています。最新情報は公式サイト・公式SNSでご確認ください。</p>
 </div>
 <script async src="https://www.instagram.com/embed.js"></script>
+<script>
+var $=function(id){return document.getElementById(id)};
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+var QUIZ=[
+  {
+    "q":"葵るりさんのペンライトカラーは？",
+    "opts":["ラベンダー","ピンク","ブルー"],
+    "ans":0,
+    "exp":"葵るりさんのペンライトカラーはラベンダーです。"
+  },
+  {
+    "q":"葵るりさんの日本グミ協会での肩書きは？",
+    "opts":["名誉会員","アンバサダー","応援サポーター"],
+    "ans":0,
+    "exp":"2023年に名誉会員に就任しました。"
+  },
+  {
+    "q":"葵るりさんのukka加入日は？",
+    "opts":["2021年9月25日","2020年4月1日","2022年11月10日"],
+    "ans":0,
+    "exp":"2021年9月25日です。結城りなさんと同時に加入しました。"
+  }
+];
+$("quiz").innerHTML=QUIZ.map(function(it,qi){return '<div class="q"><b>Q'+(qi+1)+". "+esc(it.q)+'</b><div class="opts">'+it.opts.map(function(o,oi){return '<button data-q="'+qi+'" data-o="'+oi+'">'+esc(o)+'</button>'}).join("")+'</div><p class="exp" id="exp'+qi+'" style="display:none"></p></div>';}).join("");
+document.addEventListener("click",function(ev){var qb=ev.target.closest(".quiz .opts button");if(qb){var qi=+qb.getAttribute("data-q"),oi=+qb.getAttribute("data-o"),it2=QUIZ[qi];var box=qb.parentElement;box.querySelectorAll("button").forEach(function(b){b.classList.remove("sel")});qb.classList.add("sel");var ex=$("exp"+qi);ex.style.display="block";ex.textContent=(oi===it2.ans?"正解！ ":"残念、正解は「"+it2.opts[it2.ans]+"」。 ")+it2.exp;}});
+</script>
 </body>
 </html>
