@@ -26,7 +26,7 @@ gtag('config', 'G-0RF123WR73');
   <p data-tkey="members.intro">ukkaは、2015年に桜エビ〜ずとして結成し、2019年にukkaへ名前を変えて活動してきました。2026年5月24日にはラストライブ『Final Chapter』が行われ、メンバーはそれぞれのステージへ進んでいます。『ukka』という名前には、サナギから蝶へ羽化するという意味が込められています。</p>
 
   <div class="mtabs" id="mtabs">
-    <button type="button" class="mtab on"><span class="mdot" style="background:#e60033"></span>結城りな</button>
+    <button type="button" class="mtab on"><span class="mdot" style="background:#e60033"></span>結城りな<span class="upd">更新</span></button>
     <button type="button" class="mtab"><span class="mdot" style="background:#2b6fe2"></span>村星りじゅ</button>
     <button type="button" class="mtab"><span class="mdot" style="background:#12b5a5"></span>茜空</button>
     <button type="button" class="mtab"><span class="mdot" style="background:#f2b705"></span>芹澤もあ</button>
@@ -40,11 +40,12 @@ gtag('config', 'G-0RF123WR73');
     <p class="mp-intro" id="mpIntro">笑顔の明るさと負けず嫌いの強さが魅力。『SASUKE』『KUNOICHI』にも挑む二刀流です</p>
     <a class="mp-go" id="mpGo" href="rina.html">紹介ページへ →</a>
     <a class="mp-go" id="mpStage" href="rina-stage.html" style="margin-left:8px">舞台特集へ →</a>
+    <span id="mpUpd" class="upd" style="display:none">更新</span>
   </div>
   <script>
   (function(){
     var M=[
-      {name:"結城りな",color:"赤",intro:"笑顔の明るさと負けず嫌いの強さが魅力。『SASUKE』『KUNOICHI』にも挑む二刀流です",href:"rina.html",stage:"rina-stage.html"},
+      {name:"結城りな",color:"赤",intro:"笑顔の明るさと負けず嫌いの強さが魅力。『SASUKE』『KUNOICHI』にも挑む二刀流です",href:"rina.html",stage:"rina-stage.html",upd:1},
       {name:"村星りじゅ",color:"青",intro:"女神様。スターダストプロモーション所属。特技はゲームとモノマネです",href:"riju.html"},
       {name:"茜空",color:"ターコイズ",intro:"InstagramとTikTokで発信中です",href:"sora.html"},
       {name:"芹澤もあ",color:"黄",intro:"妹2人とのYouTubeチャンネル「芹澤3姉妹」も配信中です",href:"moa.html"},
@@ -53,7 +54,7 @@ gtag('config', 'G-0RF123WR73');
       {name:"若菜こはる",color:"白",intro:"スターダストプロモーション所属。特技はピアノ・水泳・走ることです",href:"koharu.html"}
     ];
     var tabs=document.querySelectorAll("#mtabs .mtab");
-    var nameEl=document.getElementById("mpName"),colEl=document.getElementById("mpColor"),intEl=document.getElementById("mpIntro"),goEl=document.getElementById("mpGo"),stageEl=document.getElementById("mpStage");
+    var nameEl=document.getElementById("mpName"),colEl=document.getElementById("mpColor"),intEl=document.getElementById("mpIntro"),goEl=document.getElementById("mpGo"),stageEl=document.getElementById("mpStage"),updEl=document.getElementById("mpUpd");
     function show(i){
       var m=M[i];
       nameEl.textContent=m.name;
@@ -62,6 +63,7 @@ gtag('config', 'G-0RF123WR73');
       intEl.style.display=m.intro?"":"none";
       goEl.href=m.href;
       if(m.stage){stageEl.href=m.stage;stageEl.style.display="";}else{stageEl.style.display="none";}
+      updEl.style.display=m.upd?"":"none";
       for(var j=0;j<tabs.length;j++){tabs[j].classList.toggle("on",j===i);}
     }
     for(var i=0;i<tabs.length;i++){(function(idx){tabs[idx].addEventListener("click",function(){show(idx);});})(i);}
@@ -69,6 +71,18 @@ gtag('config', 'G-0RF123WR73');
   })();
   </script>
   </section>
+  <style>
+.upd{display:inline-block;background:#e60033;color:#fff;font-size:.72em;font-weight:700;border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.newsbox{border:2px solid #ffd9e4;background:#fff5f8;border-radius:14px;padding:10px 14px}
+.newsbox p{margin:4px 0}
+</style>
+  <section data-section="news">
+  <h2>最新情報</h2>
+  <div class="newsbox">
+    <p>・<a href="rina.html#friefes03" style="color:inherit;text-decoration:underline">「FRIEFES Vol.03」結城りな出演決定！</a>（2026年12月17日(木) 23:30〜・恵比寿）</p>
+  </div>
+  </section>
+
   <section data-section="free"><div id="freearea"></div></section>
 
   <style>
