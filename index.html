@@ -85,6 +85,110 @@ gtag('config', 'G-0RF123WR73');
   </div>
   </section>
 
+  <style>
+.calbox{border:2px solid #ffd9e4;background:#fff;border-radius:14px;padding:12px 14px 14px}
+.calhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.calhead .caltitle{font-family:"Zen Maru Gothic","M PLUS Rounded 1c",sans-serif;font-weight:900;font-size:19px;color:#e75480}
+.calnav{width:40px;height:40px;border-radius:999px;font-size:18px;line-height:1;padding:0}
+.callegend{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:12.5px;color:#8a6d7b;margin:0 0 10px}
+.callegend span{display:inline-flex;align-items:center;gap:4px}
+.caldot{width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1.5px #f3d7e2;display:inline-block;flex:none}
+.calgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.calwd{text-align:center;font-size:12px;font-weight:700;color:#8a6d7b;padding:2px 0}
+.calwd.sun{color:#e75480}.calwd.sat{color:#2b6fe2}
+.calday{min-height:46px;border:2px solid #f3d7e2;border-radius:10px;background:#fff;padding:3px 2px;text-align:center;font-size:14px;color:#4a3540}
+.calday.empty{border-color:transparent;background:transparent}
+.calday.has{cursor:pointer;background:#fff5f8}
+.calday.has:hover{border-color:#f78fb3}
+.calday.today{border-color:#e75480;font-weight:900}
+.calday .dots{display:flex;justify-content:center;gap:3px;margin-top:2px;min-height:12px;flex-wrap:wrap}
+.calnote{font-size:12.5px;color:#8a6d7b;margin:8px 0 0}
+.calov{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;z-index:999;padding:18px}
+.calov.on{display:flex}
+.calcard{background:#fff;border-radius:18px;padding:18px;max-width:420px;width:100%;box-shadow:0 8px 30px rgba(0,0,0,.25);animation:paPop .25s ease both;max-height:85vh;overflow-y:auto}
+.calcard h3{margin:0 0 10px;font-size:18px;color:#e75480}
+.calev{border:2px solid #f3d7e2;border-radius:12px;padding:10px 12px;margin-bottom:10px}
+.calev .who{display:flex;align-items:center;gap:6px;font-weight:700;font-size:13.5px}
+.calev h4{margin:4px 0;font-size:15.5px}
+.calev p{margin:0;font-size:14px}
+.calev a{color:#e75480;font-weight:700}
+.calclose{width:100%;margin-top:2px;background:#f78fb3;border-color:#f78fb3;color:#fff;font-weight:700}
+</style>
+  <section data-section="calendar">
+  <h2>予定カレンダー</h2>
+  <p class="intro">メンバーのペンライトカラーの印が付いた日をタップすると、その日の予定が見られます</p>
+  <div class="calbox">
+    <div class="calhead"><button type="button" class="calnav" id="calPrev" aria-label="前の月">‹</button><span class="caltitle" id="calTitle"></span><button type="button" class="calnav" id="calNext" aria-label="次の月">›</button></div>
+    <p class="callegend" id="calLegend"></p>
+    <div class="calgrid" id="calGrid"></div>
+    <p class="calnote">※ 12月16日〜20日の舞台『KAWAII偶像パラドキシカル』（結城りな出演）は、出演する回が日ごとに決まっているため、詳しくは<a href="rina-stage.html">舞台特集</a>を見てね</p>
+  </div>
+  <div class="calov" id="calOv"><div class="calcard" role="dialog" aria-modal="true"><h3 id="calPopDate"></h3><div id="calPopBody"></div><button type="button" class="calclose" id="calClose">閉じる</button></div></div>
+  <script>
+  (function(){
+    var MEMBERS=[
+      {key:"rina",name:"結城りな",color:"#e60033"},
+      {key:"riju",name:"村星りじゅ",color:"#2b6fe2"},
+      {key:"sora",name:"茜空",color:"#12b5a5"},
+      {key:"moa",name:"芹澤もあ",color:"#f2b705"},
+      {key:"ruri",name:"葵るり",color:"#9b7ed9"},
+      {key:"yu",name:"宮沢友",color:"#f07800"},
+      {key:"koharu",name:"若菜こはる",color:"#ffffff"}
+    ];
+    var MC={}; MEMBERS.forEach(function(m){MC[m.key]=m;});
+    var EV=[
+      {d:"2026-11-19",m:"rina",t:"舞台『クライマックス・パレード』",s:"19:00開演 ・ 新宿村LIVE（B班で出演）",href:"rina-stage.html"},
+      {d:"2026-11-20",m:"rina",t:"舞台『クライマックス・パレード』",s:"19:00開演 ・ 新宿村LIVE（B班で出演）",href:"rina-stage.html"},
+      {d:"2026-11-21",m:"rina",t:"舞台『クライマックス・パレード』",s:"13:00開演 ・ 新宿村LIVE（B班で出演）",href:"rina-stage.html"},
+      {d:"2026-11-22",m:"rina",t:"舞台『クライマックス・パレード』",s:"13:00開演 ・ 新宿村LIVE（B班で出演）",href:"rina-stage.html"},
+      {d:"2026-11-23",m:"rina",t:"舞台『クライマックス・パレード』",s:"16:30開演 ・ 新宿村LIVE（B班で出演）",href:"rina-stage.html"},
+      {d:"2026-11-24",m:"riju",t:"『#スタダ顔 ライブ 〜まじで頑張ろ！女のスタダ！〜』",s:"恵比寿ザ・ガーデンホール",href:"riju.html"},
+      {d:"2026-11-24",m:"rina",t:"『#スタダ顔 ライブ 〜まじで頑張ろ！女のスタダ！〜』",s:"恵比寿ザ・ガーデンホール（りななのとして出演）",href:"rinanano.html"},
+      {d:"2026-11-25",m:"rina",t:"舞台『Funkyナース〜きばらんか！〜』",s:"18:30開演 ・ 新宿THEATER BRATS（Bチーム主演）",href:"rina-stage.html"},
+      {d:"2026-11-26",m:"rina",t:"舞台『Funkyナース〜きばらんか！〜』",s:"18:30開演 ・ 新宿THEATER BRATS（Bチーム主演）",href:"rina-stage.html"},
+      {d:"2026-11-27",m:"rina",t:"舞台『Funkyナース〜きばらんか！〜』",s:"18:30開演 ・ 新宿THEATER BRATS（Bチーム主演）",href:"rina-stage.html"},
+      {d:"2026-11-28",m:"rina",t:"舞台『Funkyナース〜きばらんか！〜』",s:"13:00 / 17:00開演 ・ 新宿THEATER BRATS（Bチーム主演）",href:"rina-stage.html"},
+      {d:"2026-11-29",m:"rina",t:"舞台『Funkyナース〜きばらんか！〜』",s:"13:00 / 17:00開演 ・ 新宿THEATER BRATS（Bチーム主演）",href:"rina-stage.html"},
+      {d:"2026-12-11",m:"rina",t:"『ULTRA GT FES 2026』",s:"渋谷ストリームホール",href:"rina.html#ultragtfes"},
+      {d:"2026-12-17",m:"rina",t:"『FRIEFES Vol.03』",s:"23:30開演 ・ Ebisu TimeOut Café & Diner + KATA（恵比寿）",href:"rina.html#friefes03"},
+      {d:"2026-12-22",m:"rina",t:"『Girl's UP!!! vol.424 〜アコースティックナイト〜』",s:"開場17:20 / 開演17:40 ・ Shibuya eggman（りななのとして出演）",href:"rinanano.html#girlsup424"},
+      {d:"2026-12-29",m:"riju",t:"『良イ音シヲ！LEGEND SONGS 2026』",s:"開場14:00 / 開演15:00 ・ KANDA SQUARE HALL",href:"riju.html#legend2026"}
+    ];
+    var BY={}; EV.forEach(function(e){(BY[e.d]=BY[e.d]||[]).push(e);});
+    document.getElementById("calLegend").innerHTML=MEMBERS.map(function(m){return '<span><span class="caldot" style="background:'+m.color+'"></span>'+m.name+'</span>';}).join("");
+    var cur={y:2026,mo:10};
+    var WD=["日","月","火","水","木","金","土"];
+    function pad(n){return (n<10?"0":"")+n;}
+    function key(y,mo,d){return y+"-"+pad(mo+1)+"-"+pad(d);}
+    function render(){
+      document.getElementById("calTitle").textContent=cur.y+"年"+(cur.mo+1)+"月";
+      var first=new Date(cur.y,cur.mo,1).getDay(), days=new Date(cur.y,cur.mo+1,0).getDate();
+      var now=new Date(), tk=key(now.getFullYear(),now.getMonth(),now.getDate());
+      var h=WD.map(function(w,i){return '<div class="calwd'+(i===0?" sun":i===6?" sat":"")+'">'+w+'</div>';}).join("");
+      for(var i=0;i<first;i++) h+='<div class="calday empty"></div>';
+      for(var d=1;d<=days;d++){
+        var k=key(cur.y,cur.mo,d), evs=BY[k]||[];
+        h+='<div class="calday'+(evs.length?" has":"")+(k===tk?" today":"")+'"'+(evs.length?' data-d="'+k+'" role="button" tabindex="0"':'')+'>'+d+'<div class="dots">'+evs.map(function(e){return '<span class="caldot" style="background:'+MC[e.m].color+'"></span>';}).join("")+'</div></div>';
+      }
+      document.getElementById("calGrid").innerHTML=h;
+    }
+    function openDay(k){
+      var evs=BY[k]||[]; if(!evs.length) return;
+      var p=k.split("-"), dt=new Date(+p[0],+p[1]-1,+p[2]);
+      document.getElementById("calPopDate").textContent=p[0]+"年"+(+p[1])+"月"+(+p[2])+"日（"+WD[dt.getDay()]+"）";
+      document.getElementById("calPopBody").innerHTML=evs.map(function(e){var m=MC[e.m];return '<div class="calev"><p class="who"><span class="caldot" style="background:'+m.color+'"></span>'+m.name+'</p><h4>'+e.t+'</h4><p>'+e.s+'</p><p style="margin-top:6px"><a href="'+e.href+'">詳しく見る →</a></p></div>';}).join("");
+      document.getElementById("calOv").classList.add("on");
+    }
+    document.getElementById("calGrid").addEventListener("click",function(ev){var el=ev.target.closest("[data-d]"); if(el) openDay(el.getAttribute("data-d"));});
+    document.getElementById("calPrev").addEventListener("click",function(){cur.mo--; if(cur.mo<0){cur.mo=11;cur.y--;} render();});
+    document.getElementById("calNext").addEventListener("click",function(){cur.mo++; if(cur.mo>11){cur.mo=0;cur.y++;} render();});
+    document.getElementById("calClose").addEventListener("click",function(){document.getElementById("calOv").classList.remove("on");});
+    document.getElementById("calOv").addEventListener("click",function(ev){if(ev.target===this) this.classList.remove("on");});
+    render();
+  })();
+  </script>
+  </section>
+
   <section data-section="free"><div id="freearea"></div></section>
 
   <style>
