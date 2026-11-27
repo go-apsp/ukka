@@ -181,9 +181,9 @@ gtag('config', 'G-0RF123WR73');
 .deepclose{float:right;border:1px solid #ddd;background:#fff;border-radius:999px;padding:4px 12px;cursor:pointer;font:inherit;font-size:.85em}
 </style>
 
-<div class="deepmodal" id="deepModal"><div class="deepcard"><button class="deepclose" onclick="closeDeep()">閉じる</button><h5 id="deepTitle"></h5><p class="dsub">このイベントに関わる人たちと、これまでの関わりです。</p><div id="deepBody"></div></div></div>
+<div class="deepmodal" id="deepModal"><div class="deepcard"><button class="deepclose" onclick="closeDeep()">閉じる</button><h5 id="deepTitle"></h5><p class="dsub">このイベントのことや、関わる人たちとの関わりをまとめました。</p><div id="deepBody"></div></div></div>
 <script>
-var DEEP={'kawaii':{t:'🔍 深掘り『KAWAII偶像パラドキシカル』',h:'<div class="deepitem"><b>演出・髙木悠慎さんと「おとな小学生」のみなさん</b><p>10月の朗読劇『五十嵐探偵とお喋り仮面』で村星りじゅと一緒だった石原美沙紀さん、城崎桃華さん、三葉海緒さん、夏目妃菜さん、真野美月さんたちも出演します。秋の朗読劇の顔ぶれが、冬の舞台で再び集まります。</p></div><div class="deepitem"><b>村星りじゅとの共演</b><p>①（16日19:00）・⑥（19日13:30）・⑦（19日18:30）の3公演は、結城りなと村星りじゅが同じ回に出演します。</p></div><p style="margin-top:10px"><a href="index.html">トップのカレンダーで日程を見る →</a></p>'}};
+var DEEP={'kawaii':{t:'🔍 深掘り『KAWAII偶像パラドキシカル』',h:'<div class="deepitem"><b>どんな舞台？</b><p>演劇ユニット【メイホリック】とライブ企画【Kawaii Party！】が組んだ「ライブ×リーディング」。朗読劇の本編に、声出しやペンライトで応援できるライブパートが組み合わさった、新感覚のエンターテインメントです。</p></div><div class="deepitem"><b>歩み</b><p>2025年7〜8月に同じCBGKシブゲキ!!で初演（全8ステージ）され、同年11月には続編『KAWAII偶像パラドキシカル2』が東京ドームシティ シアターGロッソで上演されました。今回はシリーズ3作目で、初演の再演です。主題歌「Kawaii☆stage」は配信もされています。</p></div><div class="deepitem"><b>演出・髙木悠慎さんと「おとな小学生」のみなさん</b><p>10月の朗読劇『五十嵐探偵とお喋り仮面』で村星りじゅと一緒だった石原美沙紀さん、城崎桃華さん、三葉海緒さん、夏目妃菜さん、真野美月さんたちも出演します。秋の朗読劇の顔ぶれが、冬の舞台で再び集まります。</p></div><div class="deepitem"><b>村星りじゅとの共演</b><p>①（16日19:00）・⑥（19日13:30）・⑦（19日18:30）の3公演は、結城りなと村星りじゅが同じ回に出演します。</p></div><p style="margin-top:10px"><a href="index.html">トップのカレンダーで日程を見る →</a></p>'}};
 function openDeep(k){var d=DEEP[k];if(!d)return;document.getElementById('deepTitle').textContent=d.t;document.getElementById('deepBody').innerHTML=d.h;var m=document.getElementById('deepModal');m.style.display='flex';}
 function closeDeep(){document.getElementById('deepModal').style.display='none';}
 document.getElementById('deepModal').addEventListener('click',function(e){if(e.target===this)closeDeep();});

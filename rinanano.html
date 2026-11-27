@@ -83,8 +83,8 @@ gtag('config', 'G-0RF123WR73');
     <div class="quiz" id="quiz"></div>
     <h3 id="girlsup424" style="scroll-margin-top:10px">出演情報</h3>
     <div class="actgrid">
-      <div class="act" id="lunafes2026"><span class="lab">LIVE — 2026.12.06</span><h4>「Luna FESTIVAL 2026」</h4><p>2026年12月6日（日）開場14:30／開演15:00、会場は吉祥寺ROCK JOINT GBです。りななのは16:00から出演予定です。料金は6,700円（入場時にドリンク代が別途必要です）。出演は内藤るな／QPLO／Lucie,Too／結城りな＆青山菜花。一般チケットはTicketDiveで受付中です。</p><p style="margin-top:6px"><a href="https://ticketdive.com/event/lunafes2026" target="_blank" rel="noopener">チケット・詳細（TicketDive） ↗</a></p></div>
-      <div class="act"><span class="lab">LIVE — 2026.12.22</span><h4>「Girl's UP!!! vol.424 〜アコースティックナイト〜」</h4><p>2026年12月22日（火）開場17:20／開演17:40、会場はShibuya eggmanです。料金は3,000円（ドリンク代600円が別途必要で、当日会場でのお支払いです）。出演は日乃まそら／山口華穂／Mei／三浦菜々子（Anymo.）／TENDERLAMP／夕月／りななの。ご予約はTigetで受け付けています。</p><p style="margin-top:6px"><a href="https://tiget.net/events/536708" target="_blank" rel="noopener">チケット予約（Tiget） ↗</a></p></div>
+      <div class="act" id="lunafes2026"><span class="lab">LIVE — 2026.12.06</span><h4>「Luna FESTIVAL 2026」</h4><p>2026年12月6日（日）開場14:30／開演15:00、会場は吉祥寺ROCK JOINT GBです。りななのは16:00から出演予定です。料金は6,700円（入場時にドリンク代が別途必要です）。出演は内藤るな／QPLO／Lucie,Too／結城りな＆青山菜花。一般チケットはTicketDiveで受付中です。なお12月7日(月)のDAY2（内藤るなワンマン）には、青山菜花がゲスト出演します。</p><p><button class="deepbtn" onclick="openDeep('luna')">🔍 深掘り：このイベントのこと</button></p><p style="margin-top:6px"><a href="https://ticketdive.com/event/lunafes2026" target="_blank" rel="noopener">チケット・詳細（TicketDive） ↗</a></p></div>
+      <div class="act"><span class="lab">LIVE — 2026.12.22</span><h4>「Girl's UP!!! vol.424 〜アコースティックナイト〜」</h4><p>2026年12月22日（火）開場17:20／開演17:40、会場はShibuya eggmanです。料金は3,000円（ドリンク代600円が別途必要で、当日会場でのお支払いです）。出演は日乃まそら／山口華穂／Mei／三浦菜々子（Anymo.）／TENDERLAMP／夕月／りななの。りななのは18:10〜18:35の出演予定で、ライブ後には特典会も予定されています。ご予約はTigetで受け付けています。</p><p><button class="deepbtn" onclick="openDeep('girlsup')">🔍 深掘り：このイベントのこと</button></p><p style="margin-top:6px"><a href="https://tiget.net/events/536708" target="_blank" rel="noopener">チケット予約（Tiget） ↗</a></p></div>
     </div>
   </div>
   <p class="note">このページはファンが個人で作成した非公式ファンページです。ご本人、ukka、スターダストプロモーションとは関係ありません。記載内容は、公式発表や報道で確認できた範囲で記載しています。最新情報は公式サイト・公式SNSでご確認ください。</p>
@@ -140,5 +140,28 @@ document.addEventListener("click",function(ev){
 });
 </script>
 </div>
+
+<style>
+.updtag{display:inline-block;background:#e60033;color:#fff;border-radius:6px;padding:1px 7px;font-size:.72em;margin-left:8px;vertical-align:middle}
+.deepbtn{margin-top:8px;font:inherit;font-size:.92em;font-weight:700;padding:7px 14px;border-radius:999px;border:2px solid #e60033;background:#fff;color:#e60033;cursor:pointer}
+.deepbtn:active{transform:scale(.97)}
+.deepmodal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;align-items:center;justify-content:center;padding:16px}
+.deepcard{background:#fff;color:#333;border-radius:16px;max-width:480px;width:100%;max-height:82vh;overflow:auto;padding:18px;text-align:left}
+.deepcard h5{margin:0 0 4px;font-size:1.05em}
+.deepcard .dsub{font-size:.82em;color:#888;margin:0 0 8px}
+.deepitem{border-top:1px solid #eee;padding:10px 0}
+.deepitem b{font-size:.98em}
+.deepitem p{margin:4px 0 0;font-size:.9em;line-height:1.65}
+.deepclose{float:right;border:1px solid #ddd;background:#fff;border-radius:999px;padding:4px 12px;cursor:pointer;font:inherit;font-size:.85em}
+</style>
+
+<div class="deepmodal" id="deepModal"><div class="deepcard"><button class="deepclose" onclick="closeDeep()">閉じる</button><h5 id="deepTitle"></h5><p class="dsub">このイベントのことや、関わる人たちとの関わりをまとめました。</p><div id="deepBody"></div></div></div>
+<script>
+var DEEP={'luna':{t:'🔍 深掘り『Luna FESTIVAL 2026』',h:'<div class="deepitem"><b>どんなイベント？</b><p>内藤るなさんのセルフプロデュース公演です。20歳の生誕祭として2020年12月22日に恵比寿ザ・ガーデンルームで始まり、毎年12月に開かれてきました。今年で7回目、初めての2DAYS開催です。</p></div><div class="deepitem"><b>歩み</b><p>2022年にはDJパフォーマンス、2023年からは生バンド編成を取り入れ、2024年はTEAM SHACHIとの2マンライブで両部完売。2025年はゲストを迎えるフェス形式になり、少しずつ形を変えながら続いてきたイベントです。</p></div><div class="deepitem"><b>青山菜花さんとの縁</b><p>青山菜花さんは、内藤るなさんとB.O.L.TやLumiUnionで活動を共にしてきた仲です。12月7日(月)のDAY2にも、青山菜花さんがゲスト出演します。</p></div>'},
+'girlsup':{t:'🔍 深掘り『Girl\'s UP!!!』',h:'<div class="deepitem"><b>どんなイベント？</b><p>老舗ライブハウスShibuya eggman主催の、女性ボーカルが集う定期イベントです。2008年に始まって19年目、今回は通算424回目になります。ブッキング担当の窪田さんが長く育ててきた企画です。</p></div><div class="deepitem"><b>歩み・名物</b><p>毎年恒例の「年末スペシャル」は、「これがないと年を越せない」と言われる名物企画です。同じく女性ボーカル限定のサーキットフェス「LUPINUS ROCK FESTIVAL」（ファミメ！との共同主催）にも発展しています。</p></div><div class="deepitem"><b>今回の見どころ</b><p>今回は「アコースティックナイト」。りななのは18:10〜18:35の出演予定で、ギター弾き語りと2人のハモりを、ステージとの距離が近いeggmanで楽しめます。ライブ後には特典会も予定されています。</p></div>'}};
+function openDeep(k){var d=DEEP[k];if(!d)return;document.getElementById('deepTitle').textContent=d.t;document.getElementById('deepBody').innerHTML=d.h;var m=document.getElementById('deepModal');m.style.display='flex';}
+function closeDeep(){document.getElementById('deepModal').style.display='none';}
+document.getElementById('deepModal').addEventListener('click',function(e){if(e.target===this)closeDeep();});
+</script>
 </body>
 </html>

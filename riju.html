@@ -60,9 +60,9 @@ gtag('config', 'G-0RF123WR73');
 .deepclose{float:right;border:1px solid #ddd;background:#fff;border-radius:999px;padding:4px 12px;cursor:pointer;font:inherit;font-size:.85em}
 </style>
 
-<div class="deepmodal" id="deepModal"><div class="deepcard"><button class="deepclose" onclick="closeDeep()">閉じる</button><h5 id="deepTitle"></h5><p class="dsub">このイベントに関わる人たちと、これまでの関わりです。</p><div id="deepBody"></div></div></div>
+<div class="deepmodal" id="deepModal"><div class="deepcard"><button class="deepclose" onclick="closeDeep()">閉じる</button><h5 id="deepTitle"></h5><p class="dsub">このイベントのことや、関わる人たちとの関わりをまとめました。</p><div id="deepBody"></div></div></div>
 <script>
-var DEEP={'legend':{t:'🔍 深掘り『LEGEND SONGS 2026』',h:'<div class="deepitem"><b>クマリデパート（出演グループ）</b><p>2023年1月19日、Zepp DiverCity（TOKYO）でukkaとツーマンライブを行ったグループです。あれから約4年、同じイベントのステージに並びます。</p></div>'}};
+var DEEP={'legend':{t:'🔍 深掘り『LEGEND SONGS 2026』',h:'<div class="deepitem"><b>どんなイベント？</b><p>JOYSOUNDの最新機種「JOYSOUND X1 GOLD」を使って、昭和・平成・令和のイチオシアイドルソングをみんなで歌う「どでかい忘年会＆カラオケ大会」です（公式紹介より）。企画はNew Era TOKYO Entertainment、制作協力はディアステージです。</p></div><div class="deepitem"><b>ソロでの出演は2人だけ</b><p>出演はグループが中心で、ソロ名義での出演は、でか美ちゃんさんと村星りじゅさんの2人だけです。りじゅさんがどの時代の名曲を選ぶのかが楽しみなイベントです。</p></div><div class="deepitem"><b>クマリデパート（出演グループ）</b><p>2023年1月19日、Zepp DiverCity（TOKYO）でukkaとツーマンライブを行ったグループです。あれから約4年、同じイベントのステージに並びます。</p></div>'}};
 function openDeep(k){var d=DEEP[k];if(!d)return;document.getElementById('deepTitle').textContent=d.t;document.getElementById('deepBody').innerHTML=d.h;var m=document.getElementById('deepModal');m.style.display='flex';}
 function closeDeep(){document.getElementById('deepModal').style.display='none';}
 document.getElementById('deepModal').addEventListener('click',function(e){if(e.target===this)closeDeep();});
