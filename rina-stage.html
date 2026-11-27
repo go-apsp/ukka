@@ -63,7 +63,7 @@ gtag('config', 'G-0RF123WR73');
       <h4>メイホリックシアター23 ライブ×リーディング『KAWAII偶像パラドキシカル』再演</h4>
       <p class="facts"><b>日程</b> 2026年12月16日（水）〜12月20日（日）<br>
       <b>会場</b> CBGKシブゲキ!!<br>
-      <b>出演</b> 全9ステージのうち、①〜③・⑥〜⑦の公演に出演予定です。</p>
+      <b>出演</b> 全9ステージのうち、①〜③・⑥〜⑦の公演に出演します（12月16日19:00、17日14:00・19:00、19日13:30・18:30）。村星りじゅも出演し、①・⑥・⑦は同じ回です。</p><p><button class="deepbtn" onclick="openDeep('kawaii')">🔍 深掘り：ゆかりの人たち</button></p>
       <a class="sbtn" href="https://www.eventernote.com/events/496783" target="_blank" rel="noopener">公演情報</a>
     </div>
 
@@ -166,5 +166,27 @@ gtag('config', 'G-0RF123WR73');
 <p class="note">このページはファンが個人で作成した非公式ファンページです。メンバーご本人、ukka、スターダストプロモーションとは関係ありません。公演情報は公式発表で確認できた範囲で記載しています。最新情報は公式サイト・公式SNSでご確認ください。Instagramの投稿は、公式の埋め込み機能で表示しています。</p>
 </div>
 <script async src="//www.instagram.com/embed.js"></script>
+
+<style>
+.updtag{display:inline-block;background:#e60033;color:#fff;border-radius:6px;padding:1px 7px;font-size:.72em;margin-left:8px;vertical-align:middle}
+.deepbtn{margin-top:8px;font:inherit;font-size:.92em;font-weight:700;padding:7px 14px;border-radius:999px;border:2px solid #e60033;background:#fff;color:#e60033;cursor:pointer}
+.deepbtn:active{transform:scale(.97)}
+.deepmodal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;align-items:center;justify-content:center;padding:16px}
+.deepcard{background:#fff;color:#333;border-radius:16px;max-width:480px;width:100%;max-height:82vh;overflow:auto;padding:18px;text-align:left}
+.deepcard h5{margin:0 0 4px;font-size:1.05em}
+.deepcard .dsub{font-size:.82em;color:#888;margin:0 0 8px}
+.deepitem{border-top:1px solid #eee;padding:10px 0}
+.deepitem b{font-size:.98em}
+.deepitem p{margin:4px 0 0;font-size:.9em;line-height:1.65}
+.deepclose{float:right;border:1px solid #ddd;background:#fff;border-radius:999px;padding:4px 12px;cursor:pointer;font:inherit;font-size:.85em}
+</style>
+
+<div class="deepmodal" id="deepModal"><div class="deepcard"><button class="deepclose" onclick="closeDeep()">閉じる</button><h5 id="deepTitle"></h5><p class="dsub">このイベントに関わる人たちと、これまでの関わりです。</p><div id="deepBody"></div></div></div>
+<script>
+var DEEP={'kawaii':{t:'🔍 深掘り『KAWAII偶像パラドキシカル』',h:'<div class="deepitem"><b>演出・髙木悠慎さんと「おとな小学生」のみなさん</b><p>10月の朗読劇『五十嵐探偵とお喋り仮面』で村星りじゅと一緒だった石原美沙紀さん、城崎桃華さん、三葉海緒さん、夏目妃菜さん、真野美月さんたちも出演します。秋の朗読劇の顔ぶれが、冬の舞台で再び集まります。</p></div><div class="deepitem"><b>村星りじゅとの共演</b><p>①（16日19:00）・⑥（19日13:30）・⑦（19日18:30）の3公演は、結城りなと村星りじゅが同じ回に出演します。</p></div><p style="margin-top:10px"><a href="index.html">トップのカレンダーで日程を見る →</a></p>'}};
+function openDeep(k){var d=DEEP[k];if(!d)return;document.getElementById('deepTitle').textContent=d.t;document.getElementById('deepBody').innerHTML=d.h;var m=document.getElementById('deepModal');m.style.display='flex';}
+function closeDeep(){document.getElementById('deepModal').style.display='none';}
+document.getElementById('deepModal').addEventListener('click',function(e){if(e.target===this)closeDeep();});
+</script>
 </body>
 </html>
