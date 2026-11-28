@@ -181,10 +181,21 @@ gtag('config', 'G-0RF123WR73');
 .deepclose{float:right;border:1px solid #ddd;background:#fff;border-radius:999px;padding:4px 12px;cursor:pointer;font:inherit;font-size:.85em}
 </style>
 
-<div class="deepmodal" id="deepModal"><div class="deepcard"><button class="deepclose" onclick="closeDeep()">閉じる</button><h5 id="deepTitle"></h5><p class="dsub">このイベントのことや、関わる人たちとの関わりをまとめました。</p><div id="deepBody"></div></div></div>
+<style>
+.deeptgl{display:flex;background:#f3f3f5;border:1px solid #e5e5ea;border-radius:999px;padding:3px;gap:3px;margin:10px 0 6px}
+.deeptgl button{flex:1;border:none;background:none;font:inherit;font-weight:700;font-size:.9em;padding:7px 4px;border-radius:999px;cursor:pointer;color:#888}
+.deeptgl button.on{background:#e60033;color:#fff}
+.deephook{font-size:1em;font-weight:700;line-height:1.65;border-left:4px solid #e60033;padding:2px 0 2px 10px;margin:8px 0 2px}
+.deeplt{font-size:.78em;font-weight:800;letter-spacing:.06em;color:#e60033;margin:12px 0 2px}
+.deepsrc{font-size:.76em;color:#888;line-height:1.6;margin-top:8px}
+</style>
+<div class="deepmodal" id="deepModal"><div class="deepcard"><button class="deepclose" onclick="closeDeep()">閉じる</button><h5 id="deepTitle"></h5><div class="deeptgl"><button id="dtS" class="on" onclick="setDeepMode('sa')">サクッと見る</button><button id="dtG" onclick="setDeepMode('ga')">ガッツリ掘る</button></div><div id="deepBody"></div></div></div>
 <script>
-var DEEP={'kawaii':{t:'🔍 深掘り『KAWAII偶像パラドキシカル』',h:'<div class="deepitem"><b>どんな舞台？</b><p>演劇ユニット【メイホリック】とライブ企画【Kawaii Party！】が組んだ「ライブ×リーディング」。朗読劇の本編に、声出しやペンライトで応援できるライブパートが組み合わさった、新感覚のエンターテインメントです。</p></div><div class="deepitem"><b>歩み</b><p>2025年7〜8月に同じCBGKシブゲキ!!で初演（全8ステージ）され、同年11月には続編『KAWAII偶像パラドキシカル2』が東京ドームシティ シアターGロッソで上演されました。今回はシリーズ3作目で、初演の再演です。主題歌「Kawaii☆stage」は配信もされています。</p></div><div class="deepitem"><b>演出・髙木悠慎さんと「おとな小学生」のみなさん</b><p>10月の朗読劇『五十嵐探偵とお喋り仮面』で村星りじゅと一緒だった石原美沙紀さん、城崎桃華さん、三葉海緒さん、夏目妃菜さん、真野美月さんたちも出演します。秋の朗読劇の顔ぶれが、冬の舞台で再び集まります。</p></div><div class="deepitem"><b>村星りじゅとの共演</b><p>①（16日19:00）・⑥（19日13:30）・⑦（19日18:30）の3公演は、結城りなと村星りじゅが同じ回に出演します。</p></div><p style="margin-top:10px"><a href="index.html">トップのカレンダーで日程を見る →</a></p>'}};
-function openDeep(k){var d=DEEP[k];if(!d)return;document.getElementById('deepTitle').textContent=d.t;document.getElementById('deepBody').innerHTML=d.h;var m=document.getElementById('deepModal');m.style.display='flex';}
+var DEEPMODE='sa';
+var DEEP={'kawaii':{t:'🔍 深掘り『KAWAII偶像パラドキシカル』',hook:'チョコレート・オン・チョコレート。',mid:'<div class="deepitem"><b>どんな舞台？</b><p>演劇ユニット【メイホリック】とライブ企画【Kawaii Party！】が組んだ「ライブ×リーディング」。朗読劇の本編に、声出しやペンライトで応援できるライブパートが組み合わさった、新感覚のエンターテインメントです。</p></div><div class="deepitem"><b>歩み</b><p>2025年7〜8月に同じCBGKシブゲキ!!で初演（全8ステージ）され、同年11月には続編『KAWAII偶像パラドキシカル2』が東京ドームシティ シアターGロッソで上演されました。今回はシリーズ3作目で、初演の再演です。主題歌「Kawaii☆stage」は配信もされています。</p></div>',deep:'<div class="deepitem"><b>演出・髙木悠慎さんと「おとな小学生」のみなさん</b><p>10月の朗読劇『五十嵐探偵とお喋り仮面』で村星りじゅと一緒だった石原美沙紀さん、城崎桃華さん、三葉海緒さん、夏目妃菜さん、真野美月さんたちも出演します。秋の朗読劇の顔ぶれが、冬の舞台で再び集まります。</p></div><div class="deepitem"><b>村星りじゅとの共演</b><p>①（16日19:00）・⑥（19日13:30）・⑦（19日18:30）の3公演は、結城りなと村星りじゅが同じ回に出演します。</p></div><p style="margin-top:10px"><a href="index.html">トップのカレンダーで日程を見る →</a></p>',src:'出典：メイホリック公式'}};
+function setDeepMode(m){DEEPMODE=m;document.getElementById('dtS').className=(m==='sa'?'on':'');document.getElementById('dtG').className=(m==='ga'?'on':'');if(window._deepKey)renderDeep(window._deepKey);}
+function renderDeep(k){var d=DEEP[k];if(!d)return;window._deepKey=k;var h='<p class="deephook">'+d.hook+'</p>';if(DEEPMODE==='ga'){h+='<div class="deeplt">見どころ・成り立ち</div>'+d.mid+'<div class="deeplt">縁の系譜</div>'+d.deep+'<p class="deepsrc">'+d.src+'</p>';}document.getElementById('deepBody').innerHTML=h;}
+function openDeep(k){var d=DEEP[k];if(!d)return;document.getElementById('deepTitle').textContent=d.t;setDeepMode(DEEPMODE);renderDeep(k);var m=document.getElementById('deepModal');m.style.display='flex';}
 function closeDeep(){document.getElementById('deepModal').style.display='none';}
 document.getElementById('deepModal').addEventListener('click',function(e){if(e.target===this)closeDeep();});
 </script>

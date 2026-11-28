@@ -60,10 +60,21 @@ gtag('config', 'G-0RF123WR73');
 .deepclose{float:right;border:1px solid #ddd;background:#fff;border-radius:999px;padding:4px 12px;cursor:pointer;font:inherit;font-size:.85em}
 </style>
 
-<div class="deepmodal" id="deepModal"><div class="deepcard"><button class="deepclose" onclick="closeDeep()">閉じる</button><h5 id="deepTitle"></h5><p class="dsub">このイベントのことや、関わる人たちとの関わりをまとめました。</p><div id="deepBody"></div></div></div>
+<style>
+.deeptgl{display:flex;background:#f3f3f5;border:1px solid #e5e5ea;border-radius:999px;padding:3px;gap:3px;margin:10px 0 6px}
+.deeptgl button{flex:1;border:none;background:none;font:inherit;font-weight:700;font-size:.9em;padding:7px 4px;border-radius:999px;cursor:pointer;color:#888}
+.deeptgl button.on{background:#e60033;color:#fff}
+.deephook{font-size:1em;font-weight:700;line-height:1.65;border-left:4px solid #e60033;padding:2px 0 2px 10px;margin:8px 0 2px}
+.deeplt{font-size:.78em;font-weight:800;letter-spacing:.06em;color:#e60033;margin:12px 0 2px}
+.deepsrc{font-size:.76em;color:#888;line-height:1.6;margin-top:8px}
+</style>
+<div class="deepmodal" id="deepModal"><div class="deepcard"><button class="deepclose" onclick="closeDeep()">閉じる</button><h5 id="deepTitle"></h5><div class="deeptgl"><button id="dtS" class="on" onclick="setDeepMode('sa')">サクッと見る</button><button id="dtG" onclick="setDeepMode('ga')">ガッツリ掘る</button></div><div id="deepBody"></div></div></div>
 <script>
-var DEEP={'legend':{t:'🔍 深掘り『LEGEND SONGS 2026』',h:'<div class="deepitem"><b>どんなイベント？</b><p>JOYSOUNDの最新機種「JOYSOUND X1 GOLD」を使って、昭和・平成・令和のイチオシアイドルソングをみんなで歌う「どでかい忘年会＆カラオケ大会」です（公式紹介より）。企画はNew Era TOKYO Entertainment、制作協力はディアステージです。</p></div><div class="deepitem"><b>ソロでの出演は2人だけ</b><p>出演はグループが中心で、ソロ名義での出演は、でか美ちゃんさんと村星りじゅさんの2人だけです。りじゅさんがどの時代の名曲を選ぶのかが楽しみなイベントです。</p></div><div class="deepitem"><b>クマリデパート（出演グループ）</b><p>2023年1月19日、Zepp DiverCity（TOKYO）でukkaとツーマンライブを行ったグループです。あれから約4年、同じイベントのステージに並びます。</p></div>'}};
-function openDeep(k){var d=DEEP[k];if(!d)return;document.getElementById('deepTitle').textContent=d.t;document.getElementById('deepBody').innerHTML=d.h;var m=document.getElementById('deepModal');m.style.display='flex';}
+var DEEPMODE='sa';
+var DEEP={'legend':{t:'🔍 深掘り『LEGEND SONGS 2026』',hook:'優しいアクセントのハーブティー。',mid:'<div class="deepitem"><b>どんなイベント？</b><p>JOYSOUNDの最新機種「JOYSOUND X1 GOLD」を使って、昭和・平成・令和のイチオシアイドルソングをみんなで歌う「どでかい忘年会＆カラオケ大会」です（公式紹介より）。企画はNew Era TOKYO Entertainment、制作協力はディアステージです。</p></div><div class="deepitem"><b>ソロでの出演は2人だけ</b><p>出演はグループが中心で、ソロ名義での出演は、でか美ちゃんさんと村星りじゅさんの2人だけです。りじゅさんがどの時代の名曲を選ぶのかが楽しみなイベントです。</p></div>',deep:'<div class="deepitem"><b>クマリデパート（出演グループ）</b><p>2023年1月19日、Zepp DiverCity（TOKYO）でukkaとツーマンライブを行ったグループです。あれから約4年、同じイベントのステージに並びます。</p></div>',src:'出典：TIGET公式ページ／Zepp公式スケジュール'}};
+function setDeepMode(m){DEEPMODE=m;document.getElementById('dtS').className=(m==='sa'?'on':'');document.getElementById('dtG').className=(m==='ga'?'on':'');if(window._deepKey)renderDeep(window._deepKey);}
+function renderDeep(k){var d=DEEP[k];if(!d)return;window._deepKey=k;var h='<p class="deephook">'+d.hook+'</p>';if(DEEPMODE==='ga'){h+='<div class="deeplt">見どころ・成り立ち</div>'+d.mid+'<div class="deeplt">縁の系譜</div>'+d.deep+'<p class="deepsrc">'+d.src+'</p>';}document.getElementById('deepBody').innerHTML=h;}
+function openDeep(k){var d=DEEP[k];if(!d)return;document.getElementById('deepTitle').textContent=d.t;setDeepMode(DEEPMODE);renderDeep(k);var m=document.getElementById('deepModal');m.style.display='flex';}
 function closeDeep(){document.getElementById('deepModal').style.display='none';}
 document.getElementById('deepModal').addEventListener('click',function(e){if(e.target===this)closeDeep();});
 </script>
