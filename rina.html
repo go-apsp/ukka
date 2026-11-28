@@ -136,22 +136,22 @@ document.addEventListener("click",function(ev){
 </style>
 
 <style>
-.deeptgl{display:flex;background:#f3f3f5;border:1px solid #e5e5ea;border-radius:999px;padding:3px;gap:3px;margin:10px 0 6px}
-.deeptgl button{flex:1;border:none;background:none;font:inherit;font-weight:700;font-size:.9em;padding:7px 4px;border-radius:999px;cursor:pointer;color:#888}
-.deeptgl button.on{background:#e60033;color:#fff}
-.deephook{font-size:1em;font-weight:700;line-height:1.65;border-left:4px solid #e60033;padding:2px 0 2px 10px;margin:8px 0 2px}
+.deepballoon{position:relative;background:#fff;border:2.5px solid #333;border-radius:18px;padding:13px 16px 11px;margin:16px 6px 20px;transform:rotate(-1.2deg);box-shadow:3px 4px 0 rgba(0,0,0,.18);animation:deeppop .5s cubic-bezier(.2,1.6,.4,1) both}
+.deepballoon:after{content:"";position:absolute;left:34px;bottom:-13px;width:20px;height:20px;background:#fff;border-right:2.5px solid #333;border-bottom:2.5px solid #333;transform:rotate(45deg) skew(8deg,8deg)}
+.deepballoon .deephook2{font-size:1.12em;font-weight:800;line-height:1.55;color:#222;margin:0}
+@keyframes deeppop{0%{transform:scale(.5) rotate(3deg);opacity:0}60%{transform:scale(1.06) rotate(-2deg);opacity:1}100%{transform:scale(1) rotate(-1.2deg)}}
+@media (prefers-reduced-motion: reduce){.deepballoon{animation:none}}
 .deeplt{font-size:.78em;font-weight:800;letter-spacing:.06em;color:#e60033;margin:12px 0 2px}
 .deepsrc{font-size:.76em;color:#888;line-height:1.6;margin-top:8px}
+.deepnote{margin-top:12px;border-top:1px dashed #ddd;padding-top:8px;font-size:.76em;color:#999;line-height:1.6}
 </style>
-<div class="deepmodal" id="deepModal"><div class="deepcard"><button class="deepclose" onclick="closeDeep()">閉じる</button><h5 id="deepTitle"></h5><div class="deeptgl"><button id="dtS" class="on" onclick="setDeepMode('sa')">サクッと見る</button><button id="dtG" onclick="setDeepMode('ga')">ガッツリ掘る</button></div><div id="deepBody"></div></div></div>
+<div class="deepmodal" id="deepModal"><div class="deepcard"><button class="deepclose" onclick="closeDeep()">閉じる</button><h5 id="deepTitle"></h5><div id="deepBody"></div></div></div>
 <script>
-var DEEPMODE='sa';
 var DEEP={'ultra':{t:'🔍 深掘り『ULTRA GT FES 2026』',hook:'ごちゃまぜ。',mid:'<div class="deepitem"><b>どんなイベント？</b><p>FM FUJIのラジオ番組『秋本帆華のウルトラGT』から生まれた、初めての音楽フェスです。番組は2023年11月1日に放送開始した、毎週水曜23:30〜のガールズグループ番組枠「GIRLS♥GIRLS♥GIRLS」の中の冠番組です。</p></div><div class="deepitem"><b>歩み</b><p>放送3年目にして、ラジオの枠を飛び出してフェスになりました。会場は渋谷駅直結の渋谷ストリームホールで、1部・2部で出演者が一部入れ替わる構成です。</p></div>',deep:'<div class="deepitem"><b>鈴木萌花との共演リレー</b><p>鈴木萌花さんとは、翌12日のODACファンミーティング、17日のFRIEFESでも同じステージに立ちます。12月のりなの予定は、萌花さんとの縁でつながっています。</p></div>',src:'出典：FM FUJI公式／LivePocket公式ページ'},
 'friefes':{t:'🔍 深掘り『FRIEFES Vol.03』',hook:'オムライスみたいにね。',mid:'<div class="deepitem"><b>どんなイベント？</b><p>DISH//のDJ To-iさんとYackleさんが主催する深夜の音楽イベントです。2人の交友関係を軸に、ジャンルやシーンを越えたアーティストが「FRIENDS」として集まります。20歳以上限定のオールナイト公演です。</p></div><div class="deepitem"><b>歩み</b><p>2026年6月24日深夜、渋谷Club Malcolmで急きょ開かれた「Vol.0」から始まりました。Vol.01はSpotify O-nest、Vol.02はDJ To-iさんのバースデーバッシュとしてStudio Freedomで開催。回を重ねるごとに会場が大きくなり、Vol.03では初めて2つのフロアを使う形になりました。</p></div>',deep:'<div class="deepitem"><b>鈴木萌花（12月の相方）</b><p>12月11日のULTRA GT FES、12日のODACファンミーティングでも一緒になる、12月に一番多く同じステージに立つ相手です。</p></div><div class="deepitem"><b>DJ YASUMOTO（安本彩花／私立恵比寿中学）</b><p>2026年5月の「私立恵比寿中学×ukka」ツーマンライブ（Zepp Haneda）でukkaと共演。結城りなが憧れている先輩でもあります。</p></div><div class="deepitem"><b>Yackle（主催のひとり）</b><p>そのツーマンライブでは、オープニングで両グループのオープニング曲「ebiture」と「We are…」をつないだマッシュアップを手がけました。ukkaの曲を知る人が主催するイベントです。</p></div>',src:'出典：LivePocket公式ページ／音楽ナタリー ライブレポート'},
 'odac':{t:'🔍 深掘り『ODACファンミーティング2026』',hook:'やっぱ、歌かな。',mid:'<div class="deepitem"><b>どんなイベント？</b><p>劇団TEAM-ODACが「1年の感謝を伝える」ために毎年年末に開いている、恒例のファンミーティングです。TEAM-ODACのメンバーは1部と2部で総入れ替えになります。</p></div>',deep:'<div class="deepitem"><b>ゲストに選ばれた理由（公式発表より）</b><p>公式発表では、追加ゲストの2人は「今年五反田タイガーに出演してくださった鈴木萌花さん、結城りなさん」と紹介されています。舞台での共演が、そのまま年末のファンミーティングにつながりました。</p></div><div class="deepitem"><b>鈴木萌花（追加ゲスト）</b><p>10月の五反田タイガー舞台『Refrain〜でも、バイバイ！〜』で主演を務め、結城りなも出演しました。</p></div><div class="deepitem"><b>フライドBALL企画とのつながり</b><p>11月の舞台『Funkyナース〜きばらんか！〜』（結城りな主演）も、五反田タイガーと同じ系列の企画です。</p></div><p style="margin-top:10px"><a href="rina-stage.html">舞台特集で2人の舞台を見る →</a></p>',src:'出典：劇団TEAM-ODAC公式ニュース'}};
-function setDeepMode(m){DEEPMODE=m;document.getElementById('dtS').className=(m==='sa'?'on':'');document.getElementById('dtG').className=(m==='ga'?'on':'');if(window._deepKey)renderDeep(window._deepKey);}
-function renderDeep(k){var d=DEEP[k];if(!d)return;window._deepKey=k;var h='<p class="deephook">'+d.hook+'</p>';if(DEEPMODE==='ga'){h+='<div class="deeplt">見どころ・成り立ち</div>'+d.mid+'<div class="deeplt">縁の系譜</div>'+d.deep+'<p class="deepsrc">'+d.src+'</p>';}document.getElementById('deepBody').innerHTML=h;}
-function openDeep(k){var d=DEEP[k];if(!d)return;document.getElementById('deepTitle').textContent=d.t;setDeepMode(DEEPMODE);renderDeep(k);var m=document.getElementById('deepModal');m.style.display='flex';}
+var DEEPNOTE='※この文章は、イベント公式の発表ではありません。調べたことと感じたことを、自分の言葉でまとめたものです。';
+function openDeep(k){var d=DEEP[k];if(!d)return;document.getElementById('deepTitle').textContent=d.t;document.getElementById('deepBody').innerHTML='<div class="deepballoon"><p class="deephook2">'+d.hook+'</p></div><div class="deeplt">見どころ・成り立ち</div>'+d.mid+'<div class="deeplt">縁の系譜</div>'+d.deep+'<p class="deepsrc">'+d.src+'</p><p class="deepnote">'+DEEPNOTE+'</p>';var m=document.getElementById('deepModal');m.style.display='flex';}
 function closeDeep(){document.getElementById('deepModal').style.display='none';}
 document.getElementById('deepModal').addEventListener('click',function(e){if(e.target===this)closeDeep();});
 </script>
