@@ -272,7 +272,7 @@ function renderChapters(){
     if(ch.k==="msg")b.style.borderLeftColor=ch.c;
     var dot=ch.k==="msg"?"<span class=\"chap-dot\" style=\"background:"+ch.c+"\"></span>":"";
     b.innerHTML="<span class=\"chap-left\"><span class=\"chap-time\">"+fmtH(ch.t)+"</span><span class=\"chap-badge\">"+esc(ch.b)+"</span></span>"+
-      "<span class=\"chap-main\"><span class=\"chap-title\">"+dot+esc(ch.title)+"</span>"+(ch.sum?"<span class=\"chap-sum\" style=\"display:block\">"+esc(ch.sum)+"</span>":"")+"</span>"+
+      "<span class=\"chap-main\"><span class=\"chap-title\">"+dot+esc(ch.title)+"</span></span>"+
       "<span class=\"chap-play\">▶</span>";
     b.addEventListener("click",function(){goChapter(ch.t)});
     box.appendChild(b);

@@ -851,7 +851,7 @@
 
   <div class="chap-wrap" id="chapWrap">
     <h3 class="chap-head" id="chapHead">♪ Final Chapter チャプター</h3>
-    <p class="chap-note">カードをタップすると、その場面から再生します。チャプターは、上の動画セレクターで選んだ動画のものが表示されます（時刻は目安です）。</p>
+    <p class="chap-note">カードをタップすると、その場面から再生します（時刻は目安です）。</p>
     <div id="chapters"></div>
   </div>
   <style>
@@ -875,6 +875,10 @@
 .chap-sum{font-size:.76em;color:#8a5e5a;line-height:1.55;margin-top:1px}
 .chap-dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;border:1px solid rgba(0,0,0,.12)}
 .chap-play{color:#bbb;font-size:.85em}
+#corner .controls{margin-top:8px;gap:5px}
+#corner .controls .play{min-height:40px;font-size:15px}
+#corner .controls .skb{min-width:54px;min-height:40px;font-size:13px;padding:6px 8px}
+#corner .seekrow{margin-top:6px}
   </style>
 
   <div id="cards"></div>
@@ -899,7 +903,7 @@
 
 
   <script src="config.js"></script>
-  <script src="app.js?v=6"></script>
+  <script src="app.js?v=7"></script>
   <script>
     const stage = document.getElementById("stage");
     const archDoor = document.getElementById("archDoor");
