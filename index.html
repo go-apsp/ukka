@@ -377,6 +377,34 @@ gtag('config', 'G-0RF123WR73');
     <button class="toggle" id="fsbtn">⛶ 全画面</button>
   </div>
 
+  <div class="chap-wrap">
+    <h3 class="chap-head">♪ Final Chapter チャプター</h3>
+    <p class="chap-note">カードをタップすると、その場面から再生します。別の動画を選んでいるときは、Final Chapterに切り替わります（時刻は目安です）。</p>
+    <div id="chapters"></div>
+  </div>
+  <style>
+.chap-wrap{max-width:640px;margin:20px auto 4px;text-align:left}
+.chap-head{font-size:1.02em;margin:0 2px 4px}
+.chap-note{font-size:.8em;color:#8a5e5a;margin:0 2px 12px;line-height:1.6}
+#chapters{display:flex;flex-direction:column;gap:8px}
+.chap-card{display:flex;align-items:center;gap:10px;width:100%;background:#fff;border:1px solid #f3d9de;border-left:6px solid #b8a89a;border-radius:14px;padding:10px 12px;box-shadow:0 3px 10px rgba(0,0,0,.05);cursor:pointer;font:inherit;text-align:left;color:inherit;-webkit-tap-highlight-color:transparent;transition:transform .15s ease,box-shadow .15s ease}
+.chap-card:active{transform:scale(.985)}
+.chap-card.song{border-left-color:#ff7a9e}
+.chap-card.mc{border-left-color:#57b6e8}
+.chap-card.kira{border:2px solid #ffb36b;border-left:6px solid #ff8c42}
+.chap-left{min-width:64px;display:flex;flex-direction:column}
+.chap-time{font-weight:800;font-size:.95em}
+.chap-badge{font-size:.68em;font-weight:800;color:#999}
+.chap-card.song .chap-badge{color:#ff5e95}
+.chap-card.mc .chap-badge{color:#2b6fe2}
+.chap-card.kira .chap-badge{color:#ef7d1a}
+.chap-main{flex:1;min-width:0}
+.chap-title{font-weight:700;font-size:.94em;line-height:1.45}
+.chap-sum{font-size:.76em;color:#8a5e5a;line-height:1.55;margin-top:1px}
+.chap-dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;border:1px solid rgba(0,0,0,.12)}
+.chap-play{color:#bbb;font-size:.85em}
+  </style>
+
   <div id="cards"></div>
 
   <div class="form">
