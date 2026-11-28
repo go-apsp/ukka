@@ -172,11 +172,12 @@ $("vidsel").addEventListener("change",function(){
   curVid=this.value;lastBelow="";lastOvl="";$("cards").innerHTML="";$("ovl").innerHTML="";
   if(player&&ready){player.loadVideoById(curVid);baseT=0;baseAt=performance.now()}
   loadComments();
+  renderChapters();
 });
 
 /* ---------- Final Chapter チャプター（カードUI） ---------- */
 var FC_ID="1Bsn_63O9sY";
-var CHAPTERS=[
+var CHAPTERS_FC=[
  {t:0,b:"OPENING",k:"etc",title:"オープニング映像〜登場"},
  {t:147,b:"M1",k:"song",title:"アフタヌーン・グラフィティ〜10th ver.〜"},
  {t:356,b:"M2",k:"song",title:"エビ・バディ・ワナ・ビー"},
@@ -220,20 +221,52 @@ var CHAPTERS=[
  {t:9570,b:"W-EN",k:"song",title:"リンドバーグ〜10th ver.〜"},
  {t:9833,b:"ENDING",k:"etc",title:"エンディング・最後の挨拶"}
 ];
+var NC7_ID="pd4gCJTcRAA";
+var CHAPTERS_NC7=[
+ {t:18,b:"OPENING",k:"etc",title:"オープニング"},
+ {t:104,b:"M1",k:"song",title:"つなぐ"},
+ {t:390,b:"M2",k:"song",title:"Rising dream",sum:"「始まりました New Chapter \"7\"！」の掛け声から楽曲へ"},
+ {t:603,b:"M3",k:"song",title:"WINGS"},
+ {t:871,b:"MC①",k:"mc",title:"全員挨拶〜メンバー自己紹介",sum:"茜空、葵るり、芹澤もあ、結城りな、村星りじゅの順に挨拶"},
+ {t:911,b:"MC",k:"mc",title:"新メンバー自己紹介",sum:"若菜こはる（コールは「こはちゃん」）、宮沢友（コールは「ゆうちゃん」）が意気込み"},
+ {t:1007,b:"M4",k:"song",title:"リンドバーグ"},
+ {t:1259,b:"M5",k:"song",title:"Viva La Vida"},
+ {t:1509,b:"M6",k:"song",title:"214"},
+ {t:1784,b:"M7",k:"song",title:"アフタヌーン・グラフィティ"},
+ {t:2020,b:"M8",k:"song",title:"恋、いちばんめ"},
+ {t:2286,b:"M9",k:"song",title:"カノープス"},
+ {t:2556,b:"M10",k:"song",title:"wonder little love"},
+ {t:2769,b:"M11",k:"song",title:"さいしょのさいしょ"},
+ {t:3045,b:"M12",k:"song",title:"エビ・バディ・ワナ・ビー"},
+ {t:3211,b:"M13",k:"song",title:"Overnight Rainbow",sum:"新曲としての披露"},
+ {t:3480,b:"M14",k:"song",title:"コズミック・フロート"},
+ {t:3674,b:"M15",k:"song",title:"don't say Love"},
+ {t:3903,b:"M16",k:"song",title:"スーパーガール★センセーション"},
+ {t:4134,b:"M17",k:"song",title:"キラキラ"},
+ {t:4417,b:"M18",k:"song",title:"ラブパレード"},
+ {t:4631,b:"挨拶",k:"etc",title:"本編終了の挨拶"},
+ {t:4705,b:"EN1",k:"song",title:"AM0805の交差点"},
+ {t:4959,b:"EN2",k:"song",title:"それは月曜日の9時のように"},
+ {t:5177,b:"EN3",k:"song",title:"ティーンスピリット",sum:"ラストナンバー"},
+ {t:5369,b:"MC②",k:"mc",title:"新体制初お披露目の感想",sum:"若菜こはる・宮沢友が感想と締めの挨拶"},
+ {t:5456,b:"ENDING",k:"etc",title:"エンディング・最後の挨拶"}
+];
+var CHAPMAP={};
+CHAPMAP[FC_ID]={head:"♪ Final Chapter チャプター",list:CHAPTERS_FC};
+CHAPMAP[NC7_ID]={head:"♪ New Chapter \"7\" チャプター",list:CHAPTERS_NC7};
 function fmtH(t){t=Math.max(0,Math.floor(t||0));var h=Math.floor(t/3600),m=Math.floor(t%3600/60),s=t%60;var mm=h>0?("0"+m).slice(-2):String(m);return (h>0?h+":":"")+mm+":"+(s<10?"0":"")+s}
 function goChapter(sec){
-  if(curVid!==FC_ID){
-    curVid=FC_ID;$("vidsel").value=FC_ID;lastBelow="";lastOvl="";$("cards").innerHTML="";$("ovl").innerHTML="";
-    if(player&&ready){player.loadVideoById({videoId:FC_ID,startSeconds:sec});baseT=sec;baseAt=performance.now()}
-    loadComments();
-  }else if(player&&ready){
-    player.seekTo(sec,true);player.playVideo();baseT=sec;baseAt=performance.now();
-  }
+  if(player&&ready){player.seekTo(sec,true);player.playVideo();baseT=sec;baseAt=performance.now()}
   var w=$("mvwrap");if(w)w.scrollIntoView({behavior:"smooth",block:"center"});
 }
-(function(){
+function renderChapters(){
   var box=$("chapters");if(!box)return;
-  CHAPTERS.forEach(function(ch){
+  var wrap=$("chapWrap"),data=CHAPMAP[curVid];
+  if(!data){if(wrap)wrap.style.display="none";box.innerHTML="";return}
+  if(wrap)wrap.style.display="";
+  var h=$("chapHead");if(h)h.textContent=data.head;
+  box.innerHTML="";
+  data.list.forEach(function(ch){
     var b=document.createElement("button");
     b.type="button";b.className="chap-card "+ch.k;
     if(ch.k==="msg")b.style.borderLeftColor=ch.c;
@@ -244,7 +277,8 @@ function goChapter(sec){
     b.addEventListener("click",function(){goChapter(ch.t)});
     box.appendChild(b);
   });
-})();
+}
+renderChapters();
 $("ovtoggle").addEventListener("click",function(){
   var ovl=$("ovl"),inside=ovl.classList.contains("inside");
   ovl.classList.toggle("inside",!inside);ovl.classList.toggle("outside",inside);
