@@ -55,7 +55,7 @@ gtag('config', 'G-0RF123WR73');
   <script>
   (function(){
     var DOORS=[
-      {id:'kira',cls:'doors3-d1',name:'聴く扉',song:'キラキラ',icon:'spark',
+      {id:'kira',cls:'doors3-d1',name:'聴く扉',song:'キラキラ',icon:'spark',link:'kirakira.html',
        title:'聴く扉 ― まずは音から',
        body:'プロフィールを読む前に、まず1曲。気分に合った曲が、動画の一番刺さる秒数から流れ出す入口です。案内役は『キラキラ』。聴いているうちに「この声は誰？」と気になって、自然にメンバーのページへ進めます。'},
       {id:'lind',cls:'doors3-d2',name:'辿る扉',song:'リンドバーグ',icon:'plane',
@@ -78,11 +78,11 @@ gtag('config', 'G-0RF123WR73');
         b.type='button'; b.className='doors3-door'+(i===sel?' sel':'');
         var sparks = d.id==='kira' ? '<span class="doors3-spark" style="left:12%;top:14%;font-size:14px">✦</span><span class="doors3-spark" style="right:14%;top:30%;font-size:11px;animation-delay:.6s">✦</span><span class="doors3-spark" style="left:20%;bottom:16%;font-size:10px;animation-delay:1.1s">✦</span>' : '';
         b.innerHTML='<div class="doors3-face '+d.cls+'">'+sparks+icon(d.icon)+'<div class="doors3-name">'+d.name+'</div><div class="doors3-song">♪ '+d.song+'</div><span class="doors3-knob"></span></div>';
-        b.addEventListener('click',function(){ sel=i; render(); });
+        b.addEventListener('click',function(){ if(d.link){ location.href=d.link; return; } sel=i; render(); });
         wrap.appendChild(b);
       });
       var d=DOORS[sel];
-      panel.innerHTML='<h3>'+d.title+'</h3><p>'+d.body+'</p><span class="doors3-soon">この扉の先は準備中です</span>';
+      panel.innerHTML='<h3>'+d.title+'</h3><p>'+d.body+'</p>'+(d.link?'<a class="doors3-soon" style="text-decoration:none" href="'+d.link+'">扉を開く →</a>':'<span class="doors3-soon">この扉の先は準備中です</span>');
     }
     render();
   })();
