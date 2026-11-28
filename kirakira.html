@@ -722,6 +722,15 @@
     .below-card p { font-size: 13px; color: var(--text-sub); }
     .below-back { margin-top: 26px; text-align: center; }
     .below-back a { color: var(--accent-pink); font-weight: 700; text-decoration: none; }
+    .sound-fab { position: absolute; top: 14px; right: 14px; z-index: 30; border: none; cursor: pointer; padding: 9px 16px; border-radius: 999px; background: rgba(255,255,255,.92); color: var(--text-main); font: inherit; font-size: 13px; font-weight: 700; box-shadow: 0 4px 12px rgba(0,0,0,.18); opacity: 0; pointer-events: none; transition: opacity .4s ease; }
+    .stage.is-opening .sound-fab, .stage.is-phrase .sound-fab, .stage.is-gallery .sound-fab { opacity: 1; pointer-events: auto; }
+    .sound-confirm { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -46%); z-index: 40; width: min(86vw, 340px); background: rgba(255,255,255,.97); border-radius: 20px; padding: 22px 20px 16px; text-align: center; box-shadow: 0 18px 44px rgba(120,40,60,.35); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .3s ease, transform .3s ease, visibility .3s; }
+    .sound-confirm.show { opacity: 1; visibility: visible; pointer-events: auto; transform: translate(-50%, -50%); }
+    .sound-confirm-msg { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
+    .sound-confirm-sub { font-size: 12.5px; color: var(--text-sub); line-height: 1.7; margin-bottom: 16px; }
+    .sound-confirm-btns { display: flex; gap: 10px; justify-content: center; }
+    .go-btn { border: none; cursor: pointer; padding: 9px 22px; border-radius: 999px; background: var(--grad-bright); color: #fff; font: inherit; font-size: 14px; font-weight: 800; box-shadow: 0 4px 12px rgba(255,130,150,.35); }
+    .sound-confirm-close { margin-top: 12px; border: none; background: none; cursor: pointer; font: inherit; font-size: 12px; color: var(--text-sub); text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -747,6 +756,16 @@
 
     <!-- 演出中だけ出るスキップボタン -->
     <button class="skip-btn" id="skipBtn" type="button">スキップ →</button>
+    <button class="sound-fab" id="soundFab" type="button">音：オン</button>
+    <div class="sound-confirm" id="soundConfirm" role="dialog" aria-label="音の確認">
+      <p class="sound-confirm-msg">この先、音が出ます</p>
+      <p class="sound-confirm-sub">音を消したいときは、オフに切り替えてからGOしてください</p>
+      <div class="sound-confirm-btns">
+        <button class="sound-btn" id="confirmSoundBtn" type="button">音：オン</button>
+        <button class="go-btn" id="goBtn" type="button">GO →</button>
+      </div>
+      <button class="sound-confirm-close" id="confirmClose" type="button">閉じる</button>
+    </div>
 
     <!-- 3. アーチ型の扉 -->
     <section class="door-scene" id="doorScene">
@@ -788,7 +807,7 @@
         <span class="featured-player-tag">NOW PLAYING</span>
         <div class="featured-player-title" id="featuredTitle">『キラキラ』― Final Chapter（2026.05.24）</div>
         <div class="featured-controls">
-          <button class="sound-btn" id="soundBtn" type="button">音：オフ</button>
+          <button class="sound-btn" id="soundBtn" type="button">音：オン</button>
           <button class="sound-btn" id="againBtn" type="button">↺ 切り抜きをもう一度</button>
         </div>
       </div>
@@ -838,7 +857,6 @@
         events: {
           onReady: function (e) {
             playerReady = true;
-            e.target.mute();
             e.target.seekTo(CLIP_START, true);
             e.target.pauseVideo();
           }
@@ -856,11 +874,29 @@
       }
     }, 400);
 
-    soundBtn.addEventListener("click", function () {
-      if (!playerReady || !player) return;
-      if (player.isMuted()) { player.unMute(); soundBtn.textContent = "音：オン"; }
-      else { player.mute(); soundBtn.textContent = "音：オフ"; }
-    });
+    const soundFab = document.getElementById("soundFab");
+    const soundConfirm = document.getElementById("soundConfirm");
+    const confirmSoundBtn = document.getElementById("confirmSoundBtn");
+    const goBtn = document.getElementById("goBtn");
+    const confirmClose = document.getElementById("confirmClose");
+    let soundOn = true;
+    function setSound(on) {
+      soundOn = on;
+      if (playerReady && player) { if (on) player.unMute(); else player.mute(); }
+      soundBtn.textContent = on ? "音：オン" : "音：オフ";
+      soundFab.textContent = on ? "音：オン" : "音：オフ";
+      confirmSoundBtn.textContent = on ? "音：オン" : "音：オフ";
+    }
+    soundBtn.addEventListener("click", function () { setSound(!soundOn); });
+    soundFab.addEventListener("click", function () { setSound(!soundOn); });
+    confirmSoundBtn.addEventListener("click", function () { setSound(!soundOn); });
+    function showConfirm() {
+      if (isPlaying) return;
+      soundConfirm.classList.add("show");
+    }
+    function hideConfirm() { soundConfirm.classList.remove("show"); }
+    goBtn.addEventListener("click", function () { hideConfirm(); startOpening(); });
+    confirmClose.addEventListener("click", hideConfirm);
     againBtn.addEventListener("click", function () { clipPlay(); });
 
     function createBokeh() {
@@ -921,20 +957,22 @@
       clearAllTimers();
       isPlaying = true;
       stage.classList.add("is-opening", "is-phrase", "is-phrase-out", "is-gallery");
+      hideConfirm();
       clipPlay();
     }
 
     function resetOpening() {
       clearAllTimers();
+      hideConfirm();
       isPlaying = false;
       stage.classList.remove("is-opening", "is-phrase", "is-phrase-out", "is-gallery");
       if (playerReady && player) { player.pauseVideo(); player.seekTo(CLIP_START, true); }
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    archDoor.addEventListener("click", startOpening);
+    archDoor.addEventListener("click", showConfirm);
     archDoor.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); startOpening(); }
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); showConfirm(); }
     });
     skipBtn.addEventListener("click", skipToGallery);
     replayBtn.addEventListener("click", resetOpening);
